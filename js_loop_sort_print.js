@@ -17,3 +17,10 @@ for (var i = 0; i < amount.length - 1; i++)
        }
 }
 }
+//-----------------------------------------------------------------
+function array_inisial_zero(arr, l) {
+for(var i = 0; i < l; i++)
+{
+arr.push(0.00);
+}
+}
