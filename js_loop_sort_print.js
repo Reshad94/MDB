@@ -46,8 +46,8 @@ function date_dif(date1, date2)
   var one_day=1000*60*60*24;
 
   // Convert both dates to milliseconds
-  var date1_ms = date1.getTime();
-  var date2_ms = date2.getTime();
+  var date1_ms = date1.getMilliseconds();
+  var date2_ms = date2.getMilliseconds();
 
   // Calculate the difference in milliseconds
   var difference_ms = date2_ms - date1_ms;
