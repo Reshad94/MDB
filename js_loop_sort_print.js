@@ -53,7 +53,7 @@ if(dd<10) {
 if(mm<10) {
     mm = '0'+mm
 } 
-var parts = "yyyy + '-' + mm + '-' + dd"d.split('-');
+var parts = (yyyy + '-' + mm + '-' + dd).split('-');
 var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
   return mydate;
 }
