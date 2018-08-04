@@ -56,9 +56,12 @@ function date_dif(date1, date2)
   return Math.round(difference_ms/one_day); 
 }
 //---------------------------------------
-function sum_sync(arr1, arr2, arr3) {
+function sum_sync(arr1, arr2, arr3, arr4) {
 for (var e = 0; e < arr1.length; e++) 
 {
-  arr3[arr1[e] - 1] += parseFloat(arr2[e]);
+  if (arr1[e] > 34)
+  {
+  arr4[arr2[e] - 1] += parseFloat(arr3[e]);
+  }
 }
 }
