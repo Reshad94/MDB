@@ -42,6 +42,12 @@ today = yyyy + '-' + mm + '-' + dd;
 var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
   return mydate;
 }
+//---------------------------------------------------
+function date_t(d) {
+var parts = d.split('-');
+var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
+  return mydate;
+}
 //----------------------------------------------------
 function date_dif(date1, date2)
 {
