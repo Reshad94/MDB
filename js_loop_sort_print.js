@@ -36,8 +36,11 @@ if(dd<10) {
 if(mm<10) {
     mm = '0'+mm
 } 
-today = dd + '.' + mm + '.' + yyyy;
-  return today;
+today = yyyy + '-' + mm + '-' + dd;
+  
+  var parts = today.split('-');
+var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
+  return mydate;
 }
 //----------------------------------------------------
 function date_dif(date1, date2)
