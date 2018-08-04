@@ -44,7 +44,16 @@ var mydate = new Date(parts[0], parts[1] - 1, parts[2]);
 }
 //---------------------------------------------------
 function date_t(d) {
-var parts = d.split('-');
+  var dd = d.getDate();
+var mm = d.getMonth()+1; //January is 0!
+var yyyy = d.getFullYear();
+if(dd<10) {
+    dd = '0'+dd
+} 
+if(mm<10) {
+    mm = '0'+mm
+} 
+var parts = "yyyy + '-' + mm + '-' + dd"d.split('-');
 var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
   return mydate;
 }
