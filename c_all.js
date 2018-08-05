@@ -33,7 +33,13 @@ f = file("/sdcard/memento/compare.txt");
   {
    f.writeLine("(" + (i + 1).toFixed() + ") - " + moment(begin_date).add(i, "days").format("DD-MM-YYYY")   );
    f.writeLine("Credit     " + ccc[i + 1].toFixed(2) + "  =>  " + ccc[i].toFixed(2) +
-               "  (" + (ccc[i] - ccc[i + 1]).toFixed(2) );
+               "  (" + (ccc[i] - ccc[i + 1]).toFixed(2) + ")" );
+      f.writeLine("a(n)*PMT     " + aaa[i + 1].toFixed(2) + "  =>  " + aaa[i].toFixed(2) +
+               "  (" + (aaa[i] - aaa[i + 1]).toFixed(2) + ")" );
+         f.writeLine("AmountDif     " + amamam[i + 1].toFixed(2) + "  =>  " + amamam[i].toFixed(2) +
+               "  (" + (amamam[i] - amamam[i + 1]).toFixed(2) + ")" );
+           f.writeLine("Result     " + (sm_sum - aaa[i + 1]).toFixed(2) + "  =>  " + (sm_sum - aaa[i]).toFixed(2) +
+               "  (" + (-1 * aaa[i] + aaa[i + 1]).toFixed(2) + ")" );
   }
  
 
