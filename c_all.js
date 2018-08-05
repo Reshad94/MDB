@@ -32,7 +32,7 @@ f = file("/sdcard/memento/compare.txt");
   for (var i = 0; i <= n - 1; i++)
   {
    f.writeLine("(" + (i + 1).toFixed() + ") - " + moment(begin_date).add(i, "days").format("DD-MM-YYYY")   );
- //  f.writeLine("Credit     " + ccc[i + 1].toFixed(2) + "  =>  " + ccc[i].toFixed(2) +
+   f.writeLine("Credit     " + ccc[i + 1].toFixed(2) + "  =>  " + ccc[i].toFixed(2) +
                "  (" + (parseFloat(ccc[i]) - parseFloat(ccc[i + 1])).toFixed(2) );
   }
  
