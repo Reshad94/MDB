@@ -19,7 +19,7 @@ sm_sum += parseFloat(ent[e].field("Sum"));
 f = file("/sdcard/memento/compare.txt");
   for (var i = n; i >= 0; i--)
   {
-  f.writeLine(f_c_l(begin_date.add(i, "days")));
+  f.writeLine(f_c_l(moment(begin_date).add(i, "days")));
     f.writeLine(divider);
   }
   //main loop end
