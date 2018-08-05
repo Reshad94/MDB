@@ -21,9 +21,9 @@ sm_sum += parseFloat(ent[e].field("Sum"));
   {
   temp = f_c_l(moment(begin_date).add(i, "days"));
    var parts = temp.split('@');
-ccc.push(parts[0]);
-   aaa.push(parts[1]);
-   amamam.push(parts[2]);
+ccc.push(parseFloat(parts[0]));
+   aaa.push(parseFloat(parts[1]));
+   amamam.push(parseFloat(parts[2]));
   }
   //main loop end
   
@@ -33,7 +33,7 @@ f = file("/sdcard/memento/compare.txt");
   {
    f.writeLine("(" + (i + 1).toFixed() + ") - " + moment(begin_date).add(i, "days").format("DD-MM-YYYY")   );
    f.writeLine("Credit     " + ccc[i + 1].toFixed(2) + "  =>  " + ccc[i].toFixed(2) +
-               "  (" + (parseFloat(ccc[i]) - parseFloat(ccc[i + 1])).toFixed(2) );
+               "  (" + (ccc[i] - ccc[i + 1]).toFixed(2) );
   }
  
 
