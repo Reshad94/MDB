@@ -171,8 +171,7 @@ f.writeLine("Insurance Amount:     " + sm_sum.toFixed(2));
   f.writeLine(divider);
   for (var e = ent.length - 1; e > -1 ; e--) 
 {
-f.writeLine(ent[e].field("Id") + "    -    " + moment(ent[e].field("Date")).format("DD-MM-YYYY") + "    -    " 
-            + ent[e].field("Sum").toFixed(2));
+f.writeLine(ent[e].field("Id") + "    -    " + moment(ent[e].field("Date")).format("DD-MM-YYYY") + "    -    "  + parseFloat(ent[e].field("Sum")).toFixed(2));
 }
 f.close();
 //insurance end
