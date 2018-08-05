@@ -159,17 +159,17 @@ f.close();
 
 //insurance begin
 var ent = libByName("Insurance").entries(); 
-var a_sum = 0;
+var sm_sum = 0;
 //------------------------@@@
 for (var e = 0; e < ent.length; e++) 
 {
 //---------------
-a_sum += parseFloat(ent[e].field("Sum"));
+sm_sum += parseFloat(ent[e].field("Sum"));
 //---------------
 }
 //-------------------@@@
 f = file("/sdcard/memento/insurance.txt");
-f.writeLine("SM:     " + a_sum.toFixed(2));
+f.writeLine("SM:     " + sm_sum.toFixed(2));
 f.close();
 //insurance end
 
@@ -263,7 +263,7 @@ f.writeLine("Sum of a(n)*PMT = " + sumanpmts.toFixed(2));
   f.writeLine(divider);
 f.writeLine("Sum of AmountDif = " + sumamountdifs.toFixed(2));
   f.writeLine(divider);
-  f.writeLine("SM:     " + a_sum.toFixed(2));
+  f.writeLine("SM:     " + sm_sum.toFixed(2));
     f.writeLine(divider);
   f.writeLine("Result = " + (a_sum - sumanpmts).toFixed(2));
   f.close();
