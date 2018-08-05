@@ -31,7 +31,7 @@ ccc.push(parts[0]);
 f = file("/sdcard/memento/compare.txt");
   for (var i = 0; i <= n; i++)
   {
-   f.writeLine("(" + n + ") - " + moment(date_t(moment(begin_date).add(i, "days"))).format("DD-MM-YYYY")   );
+   f.writeLine("(" + n + ") - " + moment(begin_date).add(i, "days").format("DD-MM-YYYY")   );
   }
  
 
