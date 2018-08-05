@@ -29,9 +29,10 @@ ccc.push(parts[0]);
   
    var divider = "-------------------------------------------------------";
 f = file("/sdcard/memento/compare.txt");
-  for (var i = 0; i <= n; i++)
+  for (var i = 0; i <= n - 1; i++)
   {
    f.writeLine("(" + (i + 1).toFixed() + ") - " + moment(begin_date).add(i, "days").format("DD-MM-YYYY")   );
+   f.writeLine("Credit     " + ccc[i + 1].toFixed(2) + "  =>  " + ccc[i] + "  (" + (ccc[i] - ccc[i + 1]).toFixed(2) );
   }
  
 
