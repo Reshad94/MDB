@@ -169,7 +169,13 @@ sm_sum += parseFloat(ent[e].field("Sum"));
 }
 //-------------------@@@
 f = file("/sdcard/memento/insurance.txt");
-f.writeLine("SM:     " + sm_sum.toFixed(2));
+f.writeLine("Insurance Amount:     " + sm_sum.toFixed(2));
+  f.writeLine(divider);
+  for (var e = ent.length - 1; e == 0 ; e--) 
+{
+f.writeLine(ent[e].field("Id") + "    -    " + moment(ent[e].field("Date")).format("DD-MM-YYYY") + "    -    " + 
+            + ent[e].field("Sum").toFixed(2));
+}
 f.close();
 //insurance end
 
