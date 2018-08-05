@@ -1,6 +1,6 @@
 function c_all()
 {
-var begin_date =  new Date(2018, 07, 01);
+var begin_date =  new Date(2018, 06, 01);
  var now = date_now();
 var n = date_dif(begin_date, now);
  var ccc = [], aaa = [], amamam = [];
@@ -17,7 +17,7 @@ sm_sum += parseFloat(ent[e].field("Sum"));
 //insurance end
 
   //main loop begin
-  for (var i = n; i >= 0; i--)
+  for (var i = 0; i <= n; i++)
   {
   temp = f_c_l(moment(begin_date).add(i, "days"));
    var parts = temp.split('@');
