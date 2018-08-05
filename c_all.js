@@ -3,7 +3,7 @@ function c_all()
 var begin_date =  new Date(2018, 07, 01);
  var now = date_now();
 var n = date_dif(begin_date, now);
-  var begin_now
+  message (n);
 var divider = "-------------------------------------------------------";
 //insurance begin
 var ent = libByName("Insurance").entries(); 
