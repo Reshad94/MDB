@@ -17,7 +17,7 @@ sm_sum += parseFloat(ent[e].field("Sum"));
 //insurance end
 
   //main loop begin
-  for (var i = 0; i <= n; i++)
+  for (var i = n; i >= 0; i--)
   {
   temp = f_c_l(moment(begin_date).add(i, "days"));
    var parts = temp.split('@');
@@ -31,7 +31,7 @@ ccc.push(parseFloat(parts[0]));
 f = file("/sdcard/memento/compare.txt");
   for (var i = 0; i <= n - 1; i++)
   {
-   f.writeLine("(" + (i + 1).toFixed() + ") - " + moment(begin_date).add(i, "days").format("DD-MM-YYYY")   );
+   f.writeLine("(" + (i + 1).toFixed() + ") - " + moment(begin_date).add(n - i, "days").format("DD-MM-YYYY")   );
    f.writeLine("Credit     " + ccc[i + 1].toFixed(2) + "  =>  " + ccc[i].toFixed(2) +
                "  (" + (ccc[i] - ccc[i + 1]).toFixed(2) + ")" );
       f.writeLine("a(n)*PMT     " + aaa[i + 1].toFixed(2) + "  =>  " + aaa[i].toFixed(2) +
