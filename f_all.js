@@ -246,7 +246,7 @@ f.writeLine(ids[e] + "     --     " + moment(dates[e]).format("DD-MM-YYYY") + " 
 + "     --     " + moment(date_t(enddates)).format("DD-MM-YYYY") + "     --     " + anpmts[e].toFixed(2) + "     --     " + amountdifs[e].toFixed(2));
 }
 
-var sumccredits = sum(ccredits), sumanpmts = sum(anpmts), , sumamountdifs = sum(amountdifs);
+var sumccredits = sum(ccredits), sumanpmts = sum(anpmts), sumamountdifs = sum(amountdifs);
 f.writeLine("Sum of cCredit = " + sumccredits.toFixed(2));
 f.writeLine("Sum of a(n)*PMT = " + sumanpmts.toFixed(2));
 f.writeLine("Sum of AmountDif = " + sumamountdifs.toFixed(2));
