@@ -83,3 +83,11 @@ for (var e = 0; e < arr1.length; e++)
   }
 }
 }
+//---------------------------------------------
+function sum(arr) {
+var sum = 0.00;
+for (var i = 0; i < arr.length; i++) {
+  sum += arr[i];
+}
+return sum
+}
