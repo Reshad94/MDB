@@ -265,7 +265,7 @@ f.writeLine("Sum of AmountDif = " + sumamountdifs.toFixed(2));
   f.writeLine(divider);
   f.writeLine("SM:     " + sm_sum.toFixed(2));
     f.writeLine(divider);
-  f.writeLine("Result = " + (a_sum - sumanpmts).toFixed(2));
+  f.writeLine("Result = " + (sm_sum - sumanpmts).toFixed(2));
   f.close();
   //general end
 
