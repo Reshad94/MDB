@@ -3,7 +3,9 @@ function c_all()
 var begin_date =  new Date(2018, 07, 01);
  var now = date_now();
 var n = date_dif(begin_date, now);
-  message (n);
+ var ccc = [], aaa = [], amamam = [];
+ var temp;
+//  message (n);
 var divider = "-------------------------------------------------------";
 //insurance begin
 var ent = libByName("Insurance").entries(); 
@@ -15,16 +17,24 @@ sm_sum += parseFloat(ent[e].field("Sum"));
 //insurance end
 
   //main loop begin
-  var divider = "-------------------------------------------------------";
-f = file("/sdcard/memento/compare.txt");
   for (var i = n; i >= 0; i--)
   {
-  f.writeLine(f_c_l(moment(begin_date).add(i, "days")));
-    f.writeLine(divider);
+  temp = f_c_l(moment(begin_date).add(i, "days"));
+   var parts = temp.split('@');
+ccc.push(parts[0]);
+   aaa.push(parts[1]);
+   amamam.push(parts[2]);
   }
   //main loop end
   
-  
+   var divider = "-------------------------------------------------------";
+f = file("/sdcard/memento/compare.txt");
+  for (var i = 0; i <= n; i++)
+  {
+   f.writeline("(" + n + ") - " + moment(date_t(moment(begin_date).add(i, "days"))).format("DD-MM-YYYY")   );
+  }
+ 
+
   
 }
  
