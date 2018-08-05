@@ -240,19 +240,20 @@ amountdifs[e] = anpmts[e] - ccredits[e];
 }
 
 f = file("/sdcard/memento/credit.txt");
+  var sumccredits = sum(ccredits), sumanpmts = sum(anpmts), sumamountdifs = sum(amountdifs);
+f.writeLine("Sum of cCredit = " + sumccredits.toFixed(2));
+f.writeLine("Sum of a(n)*PMT = " + sumanpmts.toFixed(2));
+f.writeLine("Sum of AmountDif = " + sumamountdifs.toFixed(2));
+  f.writeLine(divider);
 f.writeLine("Id     --     Date     --     Credit     --     cCredit     --     cDate     --     c_id     --     DateDif     --     EndDate     --     a(n)*PMT     --     AmountDif");
-for (var e = 0; e < ent.length; e++) 
+  f.writeLine(divider);
+  for (var e = 0; e < ent.length; e++) 
 {
 f.writeLine(ids[e] + "     --     " + moment(dates[e]).format("DD-MM-YYYY") + "     --     " + credits[e].toFixed(2) +  
 "     --     " + ccredits[e].toFixed(2) + "     --     " + moment(date_t(cdates[e])).format("DD-MM-YYYY") +  
 "     --     " + cids[e] + "     --     " + datedifs[e] 
 + "     --     " + moment(date_t(enddates)).format("DD-MM-YYYY") + "     --     " + anpmts[e].toFixed(2) + "     --     " + amountdifs[e].toFixed(2));
 }
-
-var sumccredits = sum(ccredits), sumanpmts = sum(anpmts), sumamountdifs = sum(amountdifs);
-f.writeLine("Sum of cCredit = " + sumccredits.toFixed(2));
-f.writeLine("Sum of a(n)*PMT = " + sumanpmts.toFixed(2));
-f.writeLine("Sum of AmountDif = " + sumamountdifs.toFixed(2));
 f.close();
 //credit end
 
