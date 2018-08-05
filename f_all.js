@@ -253,5 +253,20 @@ f.writeLine("Sum of AmountDif = " + sumamountdifs.toFixed(2));
 f.close();
 //credit end
 
+  //genaral begin
+  f = file("/sdcard/memento/general.txt");
+  f.writeLine("Assets:     " + a_sum.toFixed(2));
+f.writeLine(divider);
+  f.writeLine("Sum of cCredit = " + sumccredits.toFixed(2));
+  f.writeLine(divider);
+f.writeLine("Sum of a(n)*PMT = " + sumanpmts.toFixed(2));
+  f.writeLine(divider);
+f.writeLine("Sum of AmountDif = " + sumamountdifs.toFixed(2));
+  f.writeLine(divider);
+  f.writeLine("SM:     " + a_sum.toFixed(2));
+    f.writeLine(divider);
+  f.writeLine("Result = " + (a_sum - sumanpmts).toFixed(2));
+  f.close();
+  //general end
 
 }
