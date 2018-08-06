@@ -98,6 +98,12 @@ amountdifs[jjj] = anpmts[jjj] - ccredits[jjj];
 }
 }
 
+   f_print_each(ids, dates, credits, cdates, ccredits, cids, datedifs, anpmts, amountdifs, 
+"Id     Dates     Credit     cDate     cCredit     cid     DateDif     a(n)*PMT     AmountDif"
+               );
+   
+   
+   
     var sumccredits = sum(ccredits), sumanpmts = sum(anpmts), sumamountdifs = sum(amountdifs);
     
     return sumccredits.toFixed(2) + "@" + sumanpmts.toFixed(2) + "@" + sumamountdifs.toFixed(2);
