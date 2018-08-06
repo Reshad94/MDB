@@ -91,3 +91,20 @@ for (var i = 0; i < arr.length; i++) {
 }
 return sum
 }
+//---------------------------------------------
+function f_print_each(a1, a2, a3, a4, a5, a6, a7, a8, a9, str, dt)
+{
+  var divider = "-------------------------------------------------------";
+  f = file("/sdcard/memento/compare-" + dt + " .txt");
+  f.writeLine(str);
+  f.writeLine(divider);
+  for (var e = 0; e < a1.length; e++) 
+{
+f.writeLine(a1[e] + "     --     " + moment(a2[e]).format("DD-MM-YYYY") + "     --     " + a3[e].toFixed(2) + 
+              "     --     " + moment(a4[e]).format("DD-MM-YYYY") +
+"     --     " + a5[e].toFixed(2) +
+"     --     " + a6[e] + "     --     " + a7[e] 
++  "     --     " + a8[e].toFixed(2) + "     --     " + a9[e].toFixed(2));
+}
+f.close();
+}
