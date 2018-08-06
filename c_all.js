@@ -42,7 +42,7 @@ f = file("/sdcard/memento/compare.txt");
                "  (" + (-1 * aaa[i] + aaa[i + 1]).toFixed(2) + ")" );
   }
  
-
+f.close();
   
 }
  
