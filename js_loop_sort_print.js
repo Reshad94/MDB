@@ -108,3 +108,12 @@ f.writeLine(a1[e] + "     --     " + moment(a2[e]).format("DD-MM-YYYY") + "     
 }
 f.close();
 }
+//--------------------------------------
+function pf(n)
+{return parseFloat(n);}
+function pi(n)
+{return parseInt(n);}
+function ps(n)
+{return n.toString();}
+function tp(n)
+{return typeof n;}
