@@ -1,6 +1,6 @@
 function c_all()
 {
-var begin_date =  new Date(2018, 06, 15);
+var begin_date =  new Date(2018, 06, 28);
  var now = date_now();
 var n = date_dif(begin_date, now);
  var ccc = [], aaa = [], amamam = [];
