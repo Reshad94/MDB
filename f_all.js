@@ -195,7 +195,7 @@ ccredits.push(0.00);
 anpmts.push(0.00);
 amountdifs.push(0.00);
 datedifs.push(0);
-if (ids[e] < 34)
+if (ids[e] <= 34)
 {
 if (moment(dates[e]).toDate() > moment(date_now()).toDate())
 {
