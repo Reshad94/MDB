@@ -39,8 +39,8 @@ if (ids[iii] <= 34)
 if (moment(dates[iii]).toDate() > moment(begin_now).toDate())
 {
 cdates.push(dates[iii]);
- if(ids[iii] == 7)
- {message("sehv-1@ " + moment(dates[iii]).toDate() + " @@ " + moment(begin_now).toDate());}
+// if(ids[iii] == 7)
+// {message("sehv-1@ " + moment(dates[iii]).toDate() + " @@ " + moment(begin_now).toDate());}
 }
 else
 {
@@ -50,8 +50,8 @@ cdates.push(begin_now);
 else
 {
 cdates.push(dates[iii]);
-  if(ids[iii] == 7)
- {message("sehv-2@ ids[iii]=" + ids[iii] + " " + moment(dates[iii]).toDate() + " @@ " + moment(begin_now).toDate());}
+ // if(ids[iii] == 7)
+ //{message("sehv-2@ ids[iii]=" + ids[iii] + " " + moment(dates[iii]).toDate() + " @@ " + moment(begin_now).toDate());}
 }
 datedifs[iii] = date_dif(cdates[iii], enddates);
    iii += 1;
