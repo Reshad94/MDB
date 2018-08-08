@@ -103,10 +103,10 @@ amountdifs[jjj] = anpmts[jjj] - ccredits[jjj];
 }
 
    //message (moment(begin_now).format("DD-MM-YYYY"));
-   f_print_each(ids, dates, credits, cdates, ccredits, cids, datedifs, anpmts, amountdifs, 
-"Id     Dates     Credit     cDate     cCredit     cid     DateDif     a(n)*PMT     AmountDif",
-                moment(begin_now).format("DD-MM-YYYY")
-               );
+//   f_print_each(ids, dates, credits, cdates, ccredits, cids, datedifs, anpmts, amountdifs, 
+//"Id     Dates     Credit     cDate     cCredit     cid     DateDif     a(n)*PMT     AmountDif",
+   //             moment(begin_now).format("DD-MM-YYYY")
+         //      );
    
    
    
