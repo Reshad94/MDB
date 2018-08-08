@@ -34,7 +34,7 @@ ccredits.push(0.00);
 anpmts.push(0.00);
 amountdifs.push(0.00);
 datedifs.push(0);
-if (ids[e] <= 34)
+if (ids[iii] <= 34)
 {
 if (moment(dates[iii]).toDate() > moment(begin_now).toDate())
 {
@@ -51,7 +51,7 @@ else
 {
 cdates.push(dates[iii]);
   if(ids[iii] == 7)
- {message("sehv-2@ " + moment(dates[iii]).toDate() + " @@ " + moment(begin_now).toDate());}
+ {message("sehv-2@ ids[iii]=" + ids[iii] + " " + moment(dates[iii]).toDate() + " @@ " + moment(begin_now).toDate());}
 }
 datedifs[iii] = date_dif(cdates[iii], enddates);
    iii += 1;
