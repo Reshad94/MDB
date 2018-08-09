@@ -244,6 +244,7 @@ f = file("/sdcard/memento/credit.txt");
 f.writeLine("Sum of cCredit = " + sumccredits.toFixed(2));
 f.writeLine("Sum of a(n)*PMT = " + sumanpmts.toFixed(2));
 f.writeLine("Sum of AmountDif = " + sumamountdifs.toFixed(2));
+f.writeLine("Result = " + (sm_sum - sumanpmts).toFixed(2));
   f.writeLine(divider);
 f.writeLine("Id     --     Date     --     Credit     --     cCredit     --     cDate     --     c_id     --     DateDif     --     EndDate     --     a(n)*PMT     --     AmountDif");
   f.writeLine(divider);
