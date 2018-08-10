@@ -11,7 +11,7 @@ for (var e = 0; e < ent.length; e++)
 if (ent[e].field("transactionType") == 3)
 {
 acs.push(ent[e].field("Account"));
-o_sum += parseFloat(ent[e].field("Sum"));
+o_sum += pf(ent[e].field("Sum"));
 op_n.push(ent[e].field("Account"));
 op_a.push(ent[e].field("Sum"));
 }
@@ -41,23 +41,23 @@ array_inisial_zero(mon_a, mon_n.length);
 for (var e = 0; e < ent.length; e++) 
 {
 //---------------
-a_sum += parseFloat(ent[e].field("Signed_Sum"));
+a_sum += pf(ent[e].field("Signed_Sum"));
 //---------------
-if (parseFloat(ent[e].field("Signed_Sum")) == 0)
-{m_sum += parseFloat(ent[e].field("Sum"));}
+if (pf(ent[e].field("Signed_Sum")) == 0)
+{m_sum += pf(ent[e].field("Sum"));}
 //------------------
-if (parseFloat(ent[e].field("Signed_Sum")) < 0)
-{e_sum += -1 * parseFloat(ent[e].field("Signed_Sum"));}
+if (pf(ent[e].field("Signed_Sum")) < 0)
+{e_sum += -1 * pf(ent[e].field("Signed_Sum"));}
 else
-{i_sum +=  parseFloat(ent[e].field("Signed_Sum"));}
+{i_sum +=  pf(ent[e].field("Signed_Sum"));}
 //----------------
 if (ent[e].field("transactionType") <= 1)
 {
-ams[acs.indexOf(ent[e].field("Account"))] -= parseFloat(ent[e].field("Sum"));
+ams[acs.indexOf(ent[e].field("Account"))] -= pf(ent[e].field("Sum"));
 }
 else
 {
-ams[acs.indexOf(ent[e].field("Account"))] += parseFloat(ent[e].field("Sum"));
+ams[acs.indexOf(ent[e].field("Account"))] += pf(ent[e].field("Sum"));
 }
 //--------------
 if (ent[e].field("_Account") != "")
@@ -65,28 +65,28 @@ if (ent[e].field("_Account") != "")
 //-------------
 if (ent[e].field("transactionType") <= 1)
 {
-ams[acs.indexOf(ent[e].field("_Account"))] += parseFloat(ent[e].field("Sum"));
+ams[acs.indexOf(ent[e].field("_Account"))] += pf(ent[e].field("Sum"));
 }
 else
 {
-ams[acs.indexOf(ent[e].field("_Account"))] -= parseFloat(ent[e].field("Sum"));
+ams[acs.indexOf(ent[e].field("_Account"))] -= pf(ent[e].field("Sum"));
 }
 //------------
 }
 //---------------
 if (ent[e].field("Category_Income") != "")
 {
-inc_a[inc_n.indexOf(ent[e].field("Category_Income"))] += parseFloat(ent[e].field("Sum"));
+inc_a[inc_n.indexOf(ent[e].field("Category_Income"))] += pf(ent[e].field("Sum"));
 }
 //---------------
 if (ent[e].field("Category_Expense") != "")
 {
-exp_a[exp_n.indexOf(ent[e].field("Category_Expense"))] += parseFloat(ent[e].field("Sum"));
+exp_a[exp_n.indexOf(ent[e].field("Category_Expense"))] += pf(ent[e].field("Sum"));
 }
 //---------------
 if (ent[e].field("transactionType") == 1)
 {
-mon_a[mon_n.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))] += parseFloat(ent[e].field("Sum"));
+mon_a[mon_n.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))] += pf(ent[e].field("Sum"));
 }
 //---------------
 }
@@ -99,57 +99,57 @@ array_sort_desc(op_n, op_a);
 //-------------------@@@
 var divider = "-------------------------------------------------------";
 f = file("/sdcard/memento/reporting.txt");
-f.writeLine("Assets:     " + a_sum.toFixed(2));
+f.writeLine("Assets:     " + tf(a_sum, 2));
 f.writeLine(divider);
 for (var j = 0; j < acs.length; j++) 
 {
-if (parseFloat(ams[j]) > 0)
+if (pf(ams[j]) > 0)
 {
-f.writeLine(acs[j] + ":     " + ams[j].toFixed(2));
+f.writeLine(acs[j] + ":     " + tf(ams[j], 2));
 
 }
 }
 f.writeLine(divider);
-f.writeLine("Incomes:     " + i_sum.toFixed(2));
+f.writeLine("Incomes:     " + tf(i_sum, 2));
 f.writeLine(divider);
 for (var j = 0; j < inc_n.length; j++) 
 {
-if (parseFloat(inc_a[j]) > 0)
+if (pf(inc_a[j]) > 0)
 {
-f.writeLine(inc_n[j] + ":     " + inc_a[j].toFixed(2));
+f.writeLine(inc_n[j] + ":     " + tf(inc_a[j], 2));
 
 }
 }
 f.writeLine(divider);
-f.writeLine("Expenses:     " + e_sum.toFixed(2));
+f.writeLine("Expenses:     " + tf(e_sum, 2));
 f.writeLine(divider);
 for (var j = 0; j < exp_n.length; j++) 
 {
-if (parseFloat(exp_a[j]) > 0)
+if (pf(exp_a[j]) > 0)
 {
-f.writeLine(exp_n[j] + ":     " + exp_a[j].toFixed(2));
+f.writeLine(exp_n[j] + ":     " + tf(exp_a[j], 2));
 
 }
 }
 f.writeLine(divider);
-f.writeLine("Money Transfer:     " + m_sum.toFixed(2));
+f.writeLine("Money Transfer:     " + tf(m_sum, 2));
 f.writeLine(divider);
 for (var j = 0; j < mon_n.length; j++) 
 {
-if (parseFloat(mon_a[j]) > 0)
+if (pf(mon_a[j]) > 0)
 {
-f.writeLine(mon_n[j] + "     " + mon_a[j].toFixed(2));
+f.writeLine(mon_n[j] + "     " + tf(mon_a[j], 2));
 
 }
 }
 f.writeLine(divider);
-f.writeLine("Opening Balance:     " + o_sum.toFixed(2));
+f.writeLine("Opening Balance:     " + tf(o_sum, 2));
 f.writeLine(divider);
 for (var j = 0; j < op_n.length; j++)
 {
-if (parseFloat(op_a[j]) > 0)
+if (pf(op_a[j]) > 0)
 {
-f.writeLine(op_n[j] + "     " + op_a[j].toFixed(2));
+f.writeLine(op_n[j] + "     " + tf(op_a[j], 2));
 
 }
 }
@@ -163,15 +163,15 @@ var sm_sum = 0;
 //------------------------@@@
 for (var e = 0; e < ent.length; e++) 
 {
-sm_sum += parseFloat(ent[e].field("Sum"));
+sm_sum += pf(ent[e].field("Sum"));
 }
 //-------------------@@@
 f = file("/sdcard/memento/insurance.txt");
-f.writeLine("Insurance Amount:     " + sm_sum.toFixed(2));
+f.writeLine("Insurance Amount:     " + tf(sm_sum, 2));
   f.writeLine(divider);
   for (var e = ent.length - 1; e > -1 ; e--) 
 {
-f.writeLine(ent[e].field("Id") + "    -    " + moment(ent[e].field("Date")).format("DD-MM-YYYY") + "    -    "  + parseFloat(ent[e].field("Sum")).toFixed(2));
+f.writeLine(ent[e].field("Id") + "    -    " + moment(ent[e].field("Date")).format("DD-MM-YYYY") + "    -    "  + pf(ent[e].field("Sum")).toFixed(2));
 }
 f.close();
 //insurance end
@@ -190,7 +190,7 @@ for (var e = 0; e < ent.length; e++)
 ids.push(parseInt(ent[e].field("Id")));
 dates.push(date_t(ent[e].field("Date")));
 cids.push(parseInt(ent[e].field("c_id")));
-credits.push(parseFloat(ent[e].field("Credit")));
+credits.push(pf(ent[e].field("Credit")));
 ccredits.push(0.00);
 anpmts.push(0.00);
 amountdifs.push(0.00);
@@ -219,7 +219,7 @@ for (var e = 0; e < ent.length; e++)
 {
 if (ent[e].field("Id") <= 34)
 {
-ccredits[e] = parseFloat(ent[e].field("Credit")) - parseFloat(c_ccredits[parseInt(ent[e].field("c_id")) - 1]);
+ccredits[e] = pf(ent[e].field("Credit")) - pf(c_ccredits[parseInt(ent[e].field("c_id")) - 1]);
 }
 else
 {
@@ -241,36 +241,36 @@ amountdifs[e] = anpmts[e] - ccredits[e];
 
 f = file("/sdcard/memento/credit.txt");
   var sumccredits = sum(ccredits), sumanpmts = sum(anpmts), sumamountdifs = sum(amountdifs);
-f.writeLine("Sum of cCredit = " + sumccredits.toFixed(2));
-f.writeLine("Sum of a(n)*PMT = " + sumanpmts.toFixed(2));
-f.writeLine("Sum of AmountDif = " + sumamountdifs.toFixed(2));
-f.writeLine("Result = " + (sm_sum - sumanpmts).toFixed(2));
+f.writeLine("Sum of cCredit = " + tf(sumccredits, 2));
+f.writeLine("Sum of a(n)*PMT = " + tf(sumanpmts, 2));
+f.writeLine("Sum of AmountDif = " + tf(sumamountdifs, 2));
+f.writeLine("Result = " + tf((sm_sum - sumanpmts), 2));
   f.writeLine(divider);
 f.writeLine("Id     --     Date     --     Credit     --     cCredit     --     cDate     --     c_id     --     DateDif     --     EndDate     --     a(n)*PMT     --     AmountDif");
   f.writeLine(divider);
   for (var e = 0; e < ent.length; e++) 
 {
-f.writeLine(ids[e] + "     --     " + moment(dates[e]).format("DD-MM-YYYY") + "     --     " + credits[e].toFixed(2) +  
-"     --     " + ccredits[e].toFixed(2) + "     --     " + moment(date_t(cdates[e])).format("DD-MM-YYYY") +  
+f.writeLine(ids[e] + "     --     " + moment(dates[e]).format("DD-MM-YYYY") + "     --     " + tf(credits[e], 2) +  
+"     --     " + tf(ccredits[e], 2) + "     --     " + moment(date_t(cdates[e])).format("DD-MM-YYYY") +  
 "     --     " + cids[e] + "     --     " + datedifs[e] 
-+ "     --     " + moment(date_t(enddates)).format("DD-MM-YYYY") + "     --     " + anpmts[e].toFixed(2) + "     --     " + amountdifs[e].toFixed(2));
++ "     --     " + moment(date_t(enddates)).format("DD-MM-YYYY") + "     --     " + tf(anpmts[e], 2) + "     --     " + tf(amountdifs[e], 2));
 }
 f.close();
 //credit end
 
   //genaral begin
   f = file("/sdcard/memento/general.txt");
-  f.writeLine("Assets:     " + a_sum.toFixed(2));
+  f.writeLine("Assets:     " + tf(a_sum, 2));
 f.writeLine(divider);
-  f.writeLine("Sum of cCredit = " + sumccredits.toFixed(2));
+  f.writeLine("Sum of cCredit = " + tf(sumccredits, 2));
   f.writeLine(divider);
-f.writeLine("Sum of a(n)*PMT = " + sumanpmts.toFixed(2));
+f.writeLine("Sum of a(n)*PMT = " + tf(sumanpmts, 2));
   f.writeLine(divider);
-f.writeLine("Sum of AmountDif = " + sumamountdifs.toFixed(2));
+f.writeLine("Sum of AmountDif = " + tf(sumamountdifs, 2));
   f.writeLine(divider);
-  f.writeLine("SM:     " + sm_sum.toFixed(2));
+  f.writeLine("SM:     " + tf(sm_sum, 2));
     f.writeLine(divider);
-  f.writeLine("Result = " + (sm_sum - sumanpmts).toFixed(2));
+  f.writeLine("Result = " + tf((sm_sum - sumanpmts), 2));
   f.close();
   //general end
 
