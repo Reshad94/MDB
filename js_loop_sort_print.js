@@ -117,3 +117,5 @@ function ps(n)
 {return n.toString();}
 function tp(n)
 {return typeof n;}
+function tf(n, c)
+{return n.toFixed(c);}
