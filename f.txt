@@ -1,1 +1,13 @@
 
+<script>
+var request = new XMLHttpRequest();
+request.open('GET', 'https://mementoserver-hrd.appspot.com/v1/libraries?token=706ed280-f0f2-47b8-abab-050c77075d15');
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+   document.writeln(this.status + "  @ " +
+  this.getAllResponseHeaders() + "  @  " +
+    this.responseText);
+  }
+};
+request.send();
+</script>
