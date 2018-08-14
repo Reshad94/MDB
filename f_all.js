@@ -7,11 +7,17 @@ var acs = [], ams = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = 
 var min_date = new Date(2017, 04, 01), max_date = new Date(2017, 04, 01);
 var inc_a_f_year = new Array(2), inc_a_f_quorter = new Array(2), inc_a_f_month = new Array(2), inc_a_f_dpart = new Array(2),
     exp_a_f_year = new Array(2), exp_a_f_quorter = new Array(2), exp_a_f_month = new Array(2), exp_a_f_dpart = new Array(2),
-    mon_a_f_year = new Array(2), mon_a_f_quorter = new Array(2), mon_a_f_month = new Array(2), mon_a_f_dpart = new Array(2),
+    mon_a_f_year = new Array(2), mon_a_f_quorter = new Array(2), mon_a_f_month = new Array(2), mon_a_f_dpart = new Array(2);
+var years = [], quorters = [], months = [], dparts = [];
 var a_sum = 0, i_sum = 0, e_sum = 0, m_sum = 0, o_sum = 0;
 //------------------------@@@
 for (var e = 0; e < ent.length; e++) 
 {
+//----------@
+if ( moment(date_t(ent[e].field("Date"))).toDate() < moment(min_date).toDate() )
+{ min_date = date_t(ent[e].field("Date"));  }
+  if ( moment(date_t(ent[e].field("Date"))).toDate() > moment(max_date).toDate() )
+{ max_date = date_t(ent[e].field("Date"));  }
 //----------@
 if (ent[e].field("transactionType") == 3)
 {
@@ -37,6 +43,11 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
 }
 //----------@
 }
+//--------------------------
+    inc_n_f = inc_n;
+    exp_n_f = exp_n;
+    mon_n_f = mon_n;
+//--------------------------    
 //-----------------------@@@
 array_inisial_zero(ams, acs.length);
 array_inisial_zero(inc_a, inc_n.length);
@@ -160,6 +171,10 @@ f.writeLine(op_n[j] + "     " + tf(op_a[j], 2));
 }
 f.writeLine(divider);
 f.close();
+//-------------------@@@
+f = file("/sdcard/memento/.txt");
+f.writeLine("Assets:     " + tf(a_sum, 2));
+f.writeLine(divider);
 //reporting end
 
 //insurance begin
