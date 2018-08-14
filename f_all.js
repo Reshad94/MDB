@@ -170,7 +170,8 @@ mon_a[mon_n.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Accou
 mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
     [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
     f.writeLine("id = " + ent[e].field("ID") + " " + ent[e].field("Account") + "   ==>   " + ent[e].field("_Account") + " " + 
-               moment(date_t(ent[e].field("Date"))).toDate().getFullYear());
+               moment(date_t(ent[e].field("Date"))).toDate().getFullYear() + " sum = " + tf(pf(ent[e].field("Sum")), 2)
+                );
 }
 //---------------
 }
