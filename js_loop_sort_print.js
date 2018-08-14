@@ -112,19 +112,15 @@ f.close();
 function quorter(d) {
   if ( moment(d).toDate() < ( new Date(d.getFullYear(), 03, 01) ) )
   {return 1;}
-  else
-  {
+  else 
                  if ( moment(d).toDate() < ( new Date(d.getFullYear(), 06, 01) ) )
   {return 2;}
   else
-  {
     if ( moment(d).toDate() < ( new Date(d.getFullYear(), 09, 01) ) )
   {return 3;}
   else
   {
     return 4;
-  }
-  }
   }
 }
 //--------------------------------------
