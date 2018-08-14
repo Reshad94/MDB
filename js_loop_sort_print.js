@@ -109,6 +109,25 @@ f.writeLine(a1[e] + "@" + moment(a2[e]).format("DD-MM-YYYY") + "@" + a3[e].toFix
 f.close();
 }
 //--------------------------------------
+function quorter(d) {
+  if ( moment(d).toDate() < ( new Date(d.getFullYear(), 03, 01) ) )
+  {return 1;}
+  else
+  {
+                 if ( moment(d).toDate() < ( new Date(d.getFullYear(), 06, 01) ) )
+  {return 2;}
+  else
+  {
+    if ( moment(d).toDate() < ( new Date(d.getFullYear(), 09, 01) ) )
+  {return 3;}
+  else
+  {
+    return 4;
+  }
+  }
+  }
+}
+//--------------------------------------
 function pf(n)
 {return parseFloat(n);}
 function pi(n)
