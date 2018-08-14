@@ -24,6 +24,16 @@ for(var i = 0; i < l; i++)
 arr.push(0.00);
 }
 }
+//-----------------------------------------------------------------
+function two_dim_array_inisial_zero(arr, l1, l2) {
+for(var i = 0; i < l1; i++)
+{
+  for(var j = 0; j < l2; j++)
+{
+arr[i][j] = 0.00;
+}
+}
+}
 //------------------------------------------------------------------
 function date_now() {
 var today = new Date();
