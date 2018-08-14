@@ -177,6 +177,7 @@ f.writeLine("min:     " + moment(min_date).format("DD-MM-YYYY"));
 f.writeLine(divider);
     f.writeLine("max:     " + moment(max_date).format("DD-MM-YYYY"));
     f.writeLine(divider);
+        f.writeLine("inc_n_f:     " + inc_n_f);
     f.close();
 //reporting end
 
