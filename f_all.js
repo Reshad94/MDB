@@ -172,9 +172,12 @@ f.writeLine(op_n[j] + "     " + tf(op_a[j], 2));
 f.writeLine(divider);
 f.close();
 //-------------------@@@
-f = file("/sdcard/memento/.txt");
-f.writeLine("Assets:     " + tf(a_sum, 2));
+f = file("/sdcard/memento/frequently.txt");
+f.writeLine("min:     " + moment(min_date).format("DD-MM-YYYY"));
 f.writeLine(divider);
+    f.writeLine("max:     " + moment(max_date).format("DD-MM-YYYY"));
+    f.writeLine(divider);
+    f.close();
 //reporting end
 
 //insurance begin
