@@ -95,12 +95,23 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
     }
 //-------------------------- 
     var inc_a_f_year = new Array(inc_n_f.length), inc_a_f_quorter = new Array(inc_n_f.length), inc_a_f_month = new Array(inc_n_f.length), inc_a_f_dpart = new Array(inc_n_f.length),
-    exp_a_f_year = new Array(2), exp_a_f_quorter = new Array(2), exp_a_f_month = new Array(2), exp_a_f_dpart = new Array(2),
-    mon_a_f_year = new Array(2), mon_a_f_quorter = new Array(2), mon_a_f_month = new Array(2), mon_a_f_dpart = new Array(2);
+    exp_a_f_year = new Array(exp_n_f.length), exp_a_f_quorter = new Array(exp_n_f.length), exp_a_f_month = new Array(exp_n_f.length), exp_a_f_dpart = new Array(exp_n_f.length),
+    mon_a_f_year = new Array(mon_n_f.length), mon_a_f_quorter = new Array(mon_n_f.length), mon_a_f_month = new Array(mon_n_f.length), mon_a_f_dpart = new Array(mon_n_f.length);
+    
     two_dim_array_inisial_zero(inc_a_f_year, inc_n_f.length, years.length);
     two_dim_array_inisial_zero(inc_a_f_quorter, inc_n_f.length, quorters.length);
     two_dim_array_inisial_zero(inc_a_f_month, inc_n_f.length, months.length);
     two_dim_array_inisial_zero(inc_a_f_dpart, inc_n_f.length, dparts.length);
+    
+    two_dim_array_inisial_zero(exp_a_f_year, exp_n_f.length, years.length);
+    two_dim_array_inisial_zero(exp_a_f_quorter, exp_n_f.length, quorters.length);
+    two_dim_array_inisial_zero(exp_a_f_month, exp_n_f.length, months.length);
+    two_dim_array_inisial_zero(exp_a_f_dpart, exp_n_f.length, dparts.length);
+    
+    two_dim_array_inisial_zero(mon_a_f_year, mon_n_f.length, years.length);
+    two_dim_array_inisial_zero(mon_a_f_quorter, mon_n_f.length, quorters.length);
+    two_dim_array_inisial_zero(mon_a_f_month, mon_n_f.length, months.length);
+    two_dim_array_inisial_zero(mon_a_f_dpart, mon_n_f.length, dparts.length);
 //-----------------------@@@
 array_inisial_zero(ams, acs.length);
 array_inisial_zero(inc_a, inc_n.length);
