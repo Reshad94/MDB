@@ -58,6 +58,10 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
         for(var k = min_date.getMonth()+1; k <= 12; k++)
             {
              months.push(k + "_" + i);   
+                for(var n = 1; n <= 3; n++)
+                {
+                    dparts.push(n + "_" + k + "_" + i);
+                }
             }
     }
         else
@@ -70,6 +74,10 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
         for(var t = 1; t <= max_date.getMonth()+1; t++)
             {
              months.push(t + "_" + i);   
+                for(var n = 1; n <= 3; n++)
+                {
+                    dparts.push(n + "_" + t + "_" + i);
+                }
             }
     }
         else
@@ -81,6 +89,10 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
             for(var j = 1; j <= 12; j++)
             {
              months.push(j + "_" + i);   
+                for(var n = 1; n <= 3; n++)
+                {
+                    dparts.push(n + "_" + j + "_" + i);
+                }
             }
         }
     }
@@ -242,6 +254,11 @@ f.writeLine(divider);
     for (var i = 0; i < months.length; i++)
 {
         f.writeLine(months[i]);
+}
+                    f.writeLine(divider);
+    for (var i = 0; i < dparts.length; i++)
+{
+        f.writeLine(dparts[i]);
 }
     f.close();
 //reporting end
