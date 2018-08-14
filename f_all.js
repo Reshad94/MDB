@@ -97,6 +97,10 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
         }
     }
 //-------------------------- 
+    two_dim_array_inisial_zero(inc_a_f_year, inc_n_f.length, years.length);
+    two_dim_array_inisial_zero(inc_a_f_quorter, inc_n_f.length, quorters.length);
+    two_dim_array_inisial_zero(inc_a_f_month, inc_n_f.length, months.length);
+    two_dim_array_inisial_zero(inc_a_f_dpart, inc_n_f.length, dparts.length);
 //-----------------------@@@
 array_inisial_zero(ams, acs.length);
 array_inisial_zero(inc_a, inc_n.length);
