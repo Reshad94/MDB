@@ -116,7 +116,7 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
 array_inisial_zero(ams, acs.length);
 array_inisial_zero(inc_a, inc_n.length);
 array_inisial_zero(exp_a, exp_n.length);
-array_inisial_zero(mon_a, mon_n.length);
+array_inisial_zero(mon_a, mon_n.length);f = file("/sdcard/memento/test.txt");
 //----------------------@@@
 for (var e = 0; e < ent.length; e++) 
 {
@@ -169,11 +169,13 @@ if (ent[e].field("transactionType") == 1)
 mon_a[mon_n.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))] += pf(ent[e].field("Sum"));
 mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
     [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
+    f.writeLine("id = " + ent[e].field("ID") + " " + ent[e].field("Account") + "   ==>   " + ent[e].field("_Account") + " " + 
+               moment(date_t(ent[e].field("Date"))).toDate().getFullYear());
 }
 //---------------
 }
 //-------------------@@@
-array_sort_desc(inc_n, inc_a);
+array_sort_desc(inc_n, inc_a);f.close();
 array_sort_desc(exp_n, exp_a);
 array_sort_desc(mon_n, mon_a);
 array_sort_desc(acs, ams);
