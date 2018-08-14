@@ -124,6 +124,18 @@ function quorter(d) {
   }
 }
 //--------------------------------------
+function dayp(d) {
+  if ( d.getDate() <= 10 )
+  {return 1;}
+  else 
+if ( d.getDate() <= 20 )
+  {return 2;}
+  else
+  {
+    return 3;
+  }
+}
+//--------------------------------------
 function pf(n)
 {return parseFloat(n);}
 function pi(n)
