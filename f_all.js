@@ -221,6 +221,11 @@ f.writeLine(divider);
 {
         f.writeLine(years[i]);
 }
+            f.writeLine(divider);
+    for (var i = 0; i < quorters.length; i++)
+{
+        f.writeLine(quorters[i]);
+}
     f.close();
 //reporting end
 
