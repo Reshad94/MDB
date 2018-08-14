@@ -48,6 +48,11 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
     exp_n_f = exp_n;
     mon_n_f = mon_n;
 //--------------------------    
+    for (var i = min_date.getFullYear(); i <= max_date.getFullYear(); i++)
+    {
+        years.push(i);
+    }
+//-------------------------- 
 //-----------------------@@@
 array_inisial_zero(ams, acs.length);
 array_inisial_zero(inc_a, inc_n.length);
@@ -177,7 +182,15 @@ f.writeLine("min:     " + moment(min_date).format("DD-MM-YYYY"));
 f.writeLine(divider);
     f.writeLine("max:     " + moment(max_date).format("DD-MM-YYYY"));
     f.writeLine(divider);
-        f.writeLine("inc_n_f:     " + inc_n_f);
+    for (var i = 0; i < inc_n_f.length; i++)
+{
+        f.writeLine(inc_n_f[i]);
+}
+        f.writeLine(divider);
+    for (var i = 0; i < years.length; i++)
+{
+        f.writeLine(years[i]);
+}
     f.close();
 //reporting end
 
