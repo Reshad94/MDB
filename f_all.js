@@ -187,6 +187,16 @@ f.writeLine(divider);
         f.writeLine(inc_n_f[i]);
 }
         f.writeLine(divider);
+        for (var i = 0; i < exp_n_f.length; i++)
+{
+        f.writeLine(exp_n_f[i]);
+}
+        f.writeLine(divider);
+        for (var i = 0; i < mon_n_f.length; i++)
+{
+        f.writeLine(mon_n_f[i]);
+}
+        f.writeLine(divider);
     for (var i = 0; i < years.length; i++)
 {
         f.writeLine(years[i]);
