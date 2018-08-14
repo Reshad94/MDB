@@ -5,9 +5,6 @@ var ent = libByName("Reporting").entries();
 var acs = [], ams = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
     inc_n_f = [], exp_n_f = [], mon_n_f = [];
 var min_date = new Date(2017, 04, 01), max_date = date_now();
-var inc_a_f_year = new Array(2), inc_a_f_quorter = new Array(2), inc_a_f_month = new Array(2), inc_a_f_dpart = new Array(2),
-    exp_a_f_year = new Array(2), exp_a_f_quorter = new Array(2), exp_a_f_month = new Array(2), exp_a_f_dpart = new Array(2),
-    mon_a_f_year = new Array(2), mon_a_f_quorter = new Array(2), mon_a_f_month = new Array(2), mon_a_f_dpart = new Array(2);
 var years = [], quorters = [], months = [], dparts = [];
 var a_sum = 0, i_sum = 0, e_sum = 0, m_sum = 0, o_sum = 0;
 //------------------------@@@
@@ -97,6 +94,9 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
         }
     }
 //-------------------------- 
+    var inc_a_f_year = new Array(inc_n_f.length), inc_a_f_quorter = new Array(inc_n_f.length), inc_a_f_month = new Array(inc_n_f.length), inc_a_f_dpart = new Array(inc_n_f.length),
+    exp_a_f_year = new Array(2), exp_a_f_quorter = new Array(2), exp_a_f_month = new Array(2), exp_a_f_dpart = new Array(2),
+    mon_a_f_year = new Array(2), mon_a_f_quorter = new Array(2), mon_a_f_month = new Array(2), mon_a_f_dpart = new Array(2);
     two_dim_array_inisial_zero(inc_a_f_year, inc_n_f.length, years.length);
     two_dim_array_inisial_zero(inc_a_f_quorter, inc_n_f.length, quorters.length);
     two_dim_array_inisial_zero(inc_a_f_month, inc_n_f.length, months.length);
