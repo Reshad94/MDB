@@ -2,7 +2,12 @@ function f_all()
 {
 //reporting begin
 var ent = libByName("Reporting").entries(); 
-var acs = [], ams = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [];
+var acs = [], ams = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
+    inc_n_f = [], exp_n_f = [], mon_n_f = [];
+var min_date = new Date(2017, 04, 01), max_date = new Date(2017, 04, 01);
+var inc_a_f_year = new Array(2), inc_a_f_quorter = new Array(2), inc_a_f_month = new Array(2), inc_a_f_dpart = new Array(2),
+    exp_a_f_year = new Array(2), exp_a_f_quorter = new Array(2), exp_a_f_month = new Array(2), exp_a_f_dpart = new Array(2),
+    mon_a_f_year = new Array(2), mon_a_f_quorter = new Array(2), mon_a_f_month = new Array(2), mon_a_f_dpart = new Array(2),
 var a_sum = 0, i_sum = 0, e_sum = 0, m_sum = 0, o_sum = 0;
 //------------------------@@@
 for (var e = 0; e < ent.length; e++) 
