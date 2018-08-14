@@ -247,7 +247,7 @@ f.writeLine(divider);
 {
     for (var j = 0; j < years.length; j++)
 {
-        f.writeLine("(" + mon_n_f[i] + ")(" + years[j] + ") = " + mon_a_f_year[i][j]);
+        f.writeLine("(" + mon_n_f[i] + ")(" + years[j] + ") = " + tf(mon_a_f_year[i][j], 2));
 }
 }
             f.writeLine(divider);
