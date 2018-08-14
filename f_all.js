@@ -4,7 +4,7 @@ function f_all()
 var ent = libByName("Reporting").entries(); 
 var acs = [], ams = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
     inc_n_f = [], exp_n_f = [], mon_n_f = [];
-var min_date = new Date(2017, 04, 01), max_date = new Date(2017, 04, 01);
+var min_date = new Date(2017, 04, 01), max_date = date_now();
 var inc_a_f_year = new Array(2), inc_a_f_quorter = new Array(2), inc_a_f_month = new Array(2), inc_a_f_dpart = new Array(2),
     exp_a_f_year = new Array(2), exp_a_f_quorter = new Array(2), exp_a_f_month = new Array(2), exp_a_f_dpart = new Array(2),
     mon_a_f_year = new Array(2), mon_a_f_quorter = new Array(2), mon_a_f_month = new Array(2), mon_a_f_dpart = new Array(2);
@@ -16,8 +16,6 @@ for (var e = 0; e < ent.length; e++)
 //----------@
 if ( moment(date_t(ent[e].field("Date"))).toDate() < moment(min_date).toDate() )
 { min_date = date_t(ent[e].field("Date"));  }
-  if ( moment(date_t(ent[e].field("Date"))).toDate() > moment(max_date).toDate() )
-{ max_date = date_t(ent[e].field("Date"));  }
 //----------@
 if (ent[e].field("transactionType") == 3)
 {
