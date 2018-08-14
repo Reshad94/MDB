@@ -251,9 +251,9 @@ f.writeLine(divider);
 }
 }
             f.writeLine(divider);
-    for (var i = 0; i < quorters.length; i++)
+    for (var i = 0; i < mon_n_f.length; i++)
 {
-        f.writeLine(quorters[i]);
+        f.writeLine(mon_n_f[i]);
 }
                 f.writeLine(divider);
     for (var i = 0; i < months.length; i++)
