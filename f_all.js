@@ -49,6 +49,28 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
     for (var i = min_date.getFullYear(); i <= max_date.getFullYear(); i++)
     {
         years.push(i);
+    if ( i == min_date.getFullYear() )
+    {
+        for(var k = quorter(min_date); k <= 4; k++)
+            {
+             quorters.push(k + "_" + i);   
+            }
+    }
+        else
+    if ( i == max_date.getFullYear() )   
+    {
+        for(var t = 1; t <= quorter(max_date); t++)
+            {
+             quorters.push(t + "_" + i);   
+            }
+    }
+        else
+        {
+            for(var j = 1; j <= 4; j++)
+            {
+             quorters.push(j + "_" + i);   
+            }
+        }
     }
 //-------------------------- 
 //-----------------------@@@
