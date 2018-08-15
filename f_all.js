@@ -161,11 +161,57 @@ ams[acs.indexOf(ent[e].field("_Account"))] -= pf(ent[e].field("Sum"));
 if (ent[e].field("Category_Income") != "")
 {
 inc_a[inc_n.indexOf(ent[e].field("Category_Income"))] += pf(ent[e].field("Sum"));
+    
+    
+    
+    
+    inc_a_f_year[inc_n_f.indexOf(ent[e].field("Category_Income"))]
+    [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
+    
+    inc_a_f_quorter[inc_n_f.indexOf(ent[e].field("Category_Income"))]
+[quorters.indexOf(quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        += pf(ent[e].field("Sum"));
+    
+        inc_a_f_month[inc_n_f.indexOf(ent[e].field("Category_Income"))]
+[months.indexOf((ent[e].field("Date").getMonth() + 1) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        += pf(ent[e].field("Sum"));
+    
+            inc_a_f_dpart[inc_n_f.indexOf(ent[e].field("Category_Income"))]
+[dparts.indexOf(dayp(ent[e].field("Date")) + "_" + (ent[e].field("Date").getMonth() + 1) + "_" +
+                moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        += pf(ent[e].field("Sum"));
+    
+    
+    
 }
 //---------------
 if (ent[e].field("Category_Expense") != "")
 {
 exp_a[exp_n.indexOf(ent[e].field("Category_Expense"))] += pf(ent[e].field("Sum"));
+    
+    
+    
+    
+        exp_a_f_year[inc_n_f.indexOf(ent[e].field("Category_Expense"))]
+    [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
+    
+    exp_a_f_quorter[inc_n_f.indexOf(ent[e].field("Category_Expense"))]
+[quorters.indexOf(quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        += pf(ent[e].field("Sum"));
+    
+        exp_a_f_month[inc_n_f.indexOf(ent[e].field("Category_Expense"))]
+[months.indexOf((ent[e].field("Date").getMonth() + 1) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        += pf(ent[e].field("Sum"));
+    
+            exp_a_f_dpart[inc_n_f.indexOf(ent[e].field("Category_Expense"))]
+[dparts.indexOf(dayp(ent[e].field("Date")) + "_" + (ent[e].field("Date").getMonth() + 1) + "_" +
+                moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        += pf(ent[e].field("Sum"));
+    
+    
+    
+    
+    
 }
 //---------------
 if (ent[e].field("transactionType") == 1)
@@ -266,6 +312,9 @@ f.writeLine(divider);
 f.close();
 //-------------------@@@
 f = file("/sdcard/memento/frequently.txt");
+    
+    f.writeLine("Money Transfer");
+    f.writeLine(divider);
         for (var i = 0; i < mon_n_f.length; i++)
 {
     for (var j = 0; j < years.length; j++)
@@ -298,6 +347,82 @@ f = file("/sdcard/memento/frequently.txt");
 }
 }
 
+    
+    f.writeLine(divider);
+    f.writeLine("Incomes");
+    f.writeLine(divider);
+            for (var i = 0; i < inc_n_f.length; i++)
+{
+    for (var j = 0; j < years.length; j++)
+{
+        f.writeLine("(" + inc_n_f[i] + ")(" + years[j] + ") = " + tf(inc_a_f_year[i][j], 2));
+}
+}
+            f.writeLine(divider);
+            for (var i = 0; i < inc_n_f.length; i++)
+{
+    for (var j = 0; j < quorters.length; j++)
+{
+        f.writeLine("(" + inc_n_f[i] + ")(" + quorters[j] + ") = " + tf(inc_a_f_quorter[i][j], 2));
+}
+}
+            f.writeLine(divider);
+            for (var i = 0; i < inc_n_f.length; i++)
+{
+    for (var j = 0; j < months.length; j++)
+{
+        f.writeLine("(" + inc_n_f[i] + ")(" + months[j] + ") = " + tf(inc_a_f_month[i][j], 2));
+}
+}
+            f.writeLine(divider);
+            for (var i = 0; i < inc_n_f.length; i++)
+{
+    for (var j = 0; j < dparts.length; j++)
+{
+        f.writeLine("(" + inc_n_f[i] + ")(" + dparts[j] + ") = " + tf(inc_a_f_dpart[i][j], 2));
+}
+}
+    
+    
+        f.writeLine(divider);
+    f.writeLine("Expenses");
+    f.writeLine(divider);
+    
+                for (var i = 0; i < exp_n_f.length; i++)
+{
+    for (var j = 0; j < years.length; j++)
+{
+        f.writeLine("(" + exp_n_f[i] + ")(" + years[j] + ") = " + tf(exp_a_f_year[i][j], 2));
+}
+}
+            f.writeLine(divider);
+            for (var i = 0; i < exp_n_f.length; i++)
+{
+    for (var j = 0; j < quorters.length; j++)
+{
+        f.writeLine("(" + exp_n_f[i] + ")(" + quorters[j] + ") = " + tf(exp_a_f_quorter[i][j], 2));
+}
+}
+            f.writeLine(divider);
+            for (var i = 0; i < exp_n_f.length; i++)
+{
+    for (var j = 0; j < months.length; j++)
+{
+        f.writeLine("(" + exp_n_f[i] + ")(" + months[j] + ") = " + tf(exp_a_f_month[i][j], 2));
+}
+}
+            f.writeLine(divider);
+            for (var i = 0; i < exp_n_f.length; i++)
+{
+    for (var j = 0; j < dparts.length; j++)
+{
+        f.writeLine("(" + exp_n_f[i] + ")(" + dparts[j] + ") = " + tf(exp_a_f_dpart[i][j], 2));
+}
+}
+    
+    
+    
+    
 
     f.close();
 //reporting end
