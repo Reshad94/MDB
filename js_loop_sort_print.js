@@ -27,6 +27,7 @@ arr.push(0.00);
 //-----------------------------------------------------------------
 function two_dim_array_inisial_zero(arr, numRows, numColumns) {
 //	arr = new Array(numRows); 
+//	var arr2D = new Array(5).fill(new Array(3).fill("hey"));
 	for(var i = 0; i < numColumns; i++) {
 		arr[i] = new Array(numColumns); 
 	}
