@@ -94,11 +94,12 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
         }
     }
 //-------------------------- 
-    var inc_a_f_year = new Array(inc_n_f.length), inc_a_f_quorter = new Array(inc_n_f.length), inc_a_f_month = new Array(inc_n_f.length), inc_a_f_dpart = new Array(inc_n_f.length),
-    exp_a_f_year = new Array(exp_n_f.length), exp_a_f_quorter = new Array(exp_n_f.length), exp_a_f_month = new Array(exp_n_f.length), exp_a_f_dpart = new Array(exp_n_f.length),
-    mon_a_f_year =  [], //new Array(mon_n_f.length), 
-       mon_a_f_quorter = [], //new Array(mon_n_f.length), 
-        mon_a_f_month = new Array(mon_n_f.length), mon_a_f_dpart = new Array(mon_n_f.length);
+    var inc_a_f_year = [], inc_a_f_quorter = [], inc_a_f_month = [], inc_a_f_dpart = [],
+    exp_a_f_year = [], exp_a_f_quorter = [], exp_a_f_month = [], exp_a_f_dpart = [],
+    mon_a_f_year =  [], 
+    mon_a_f_quorter = [], 
+    mon_a_f_month = [], 
+    mon_a_f_dpart = [];
     
     two_dim_array_inisial_zero(inc_a_f_year, inc_n_f.length, years.length);
     two_dim_array_inisial_zero(inc_a_f_quorter, inc_n_f.length, quorters.length);
@@ -118,7 +119,8 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
 array_inisial_zero(ams, acs.length);
 array_inisial_zero(inc_a, inc_n.length);
 array_inisial_zero(exp_a, exp_n.length);
-array_inisial_zero(mon_a, mon_n.length);f = file("/sdcard/memento/test.txt");
+array_inisial_zero(mon_a, mon_n.length);
+    //f = file("/sdcard/memento/test.txt");
 //----------------------@@@
 for (var e = 0; e < ent.length; e++) 
 {
@@ -176,18 +178,19 @@ mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].fiel
     mon_a_f_quorter[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
 [quorters.indexOf(quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
     
-    f.writeLine("id = " + ent[e].field("ID") + " " + ent[e].field("Account") + "   ==>   " + ent[e].field("_Account") + " " + 
-               moment(date_t(ent[e].field("Date"))).toDate().getFullYear() + " sum = " + tf(pf(ent[e].field("Sum")), 2) +
-         " mon_n_f.index: " +  mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account")) +
-                " years.indexof: " + years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear()) +
-                " res: " + tf(mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
-    [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())], 2)
-                );
+//    f.writeLine("id = " + ent[e].field("ID") + " " + ent[e].field("Account") + "   ==>   " + ent[e].field("_Account") + " " + 
+//               moment(date_t(ent[e].field("Date"))).toDate().getFullYear() + " sum = " + tf(pf(ent[e].field("Sum")), 2) +
+//         " mon_n_f.index: " +  mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account")) +
+ //               " years.indexof: " + years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear()) +
+//                " res: " + tf(mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
+//    [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())], 2)
+ //               );
 }
 //---------------
 }
 //-------------------@@@
-array_sort_desc(inc_n, inc_a);f.close();
+array_sort_desc(inc_n, inc_a);
+    //f.close();
 array_sort_desc(exp_n, exp_a);
 array_sort_desc(mon_n, mon_a);
 array_sort_desc(acs, ams);
@@ -268,11 +271,7 @@ f = file("/sdcard/memento/frequently.txt");
         f.writeLine("(" + mon_n_f[i] + ")(" + quorters[j] + ") = " + mon_a_f_quorter[i][j]);
 }
 }
-            f.writeLine(divider);
-    for (var i = 0; i < mon_n_f.length; i++)
-{
-        f.writeLine(mon_n_f[i]);
-}
+
 
 
 
