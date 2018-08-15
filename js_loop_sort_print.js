@@ -18,6 +18,13 @@ for (var i = 0; i < amount.length - 1; i++)
 }
 }
 //-----------------------------------------------------------------
+function array_copy(arr1, arr2) {
+for(var i = 0; i < arr1.length; i++)
+{
+arr2.push(arr1[i]);
+}
+}
+//-----------------------------------------------------------------
 function array_inisial_zero(arr, l) {
 for(var i = 0; i < l; i++)
 {
