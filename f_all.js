@@ -39,9 +39,9 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
 //----------@
 }
 //--------------------------
-    inc_n_f = inc_n;
-    exp_n_f = exp_n;
-    mon_n_f = mon_n;
+    array_copy(inc_n, inc_n_f);
+    array_copy(exp_n, exp_n_f);
+    array_copy(mon_n, mon_n_f);
 //--------------------------    
     for (var i = min_date.getFullYear(); i <= max_date.getFullYear(); i++)
     {
