@@ -176,7 +176,17 @@ mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].fiel
     [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
     
     mon_a_f_quorter[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
-[quorters.indexOf(quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
+[quorters.indexOf(quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        += pf(ent[e].field("Sum"));
+    
+        mon_a_f_month[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
+[months.indexOf((ent[e].field("Date").getMonth() + 1) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        += pf(ent[e].field("Sum"));
+    
+            mon_a_f_dpart[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
+[dparts.indexOf(dayp(ent[e].field("Date")) + "_" (ent[e].field("Date").getMonth() + 1) + "_" +
+                moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        += pf(ent[e].field("Sum"));
     
 //    f.writeLine("id = " + ent[e].field("ID") + " " + ent[e].field("Account") + "   ==>   " + ent[e].field("_Account") + " " + 
 //               moment(date_t(ent[e].field("Date"))).toDate().getFullYear() + " sum = " + tf(pf(ent[e].field("Sum")), 2) +
@@ -271,8 +281,22 @@ f = file("/sdcard/memento/frequently.txt");
         f.writeLine("(" + mon_n_f[i] + ")(" + quorters[j] + ") = " + tf(mon_a_f_quorter[i][j], 2));
 }
 }
-
-
+            f.writeLine(divider);
+            for (var i = 0; i < mon_n_f.length; i++)
+{
+    for (var j = 0; j < months.length; j++)
+{
+        f.writeLine("(" + mon_n_f[i] + ")(" + months[j] + ") = " + tf(mon_a_f_month[i][j], 2));
+}
+}
+            f.writeLine(divider);
+            for (var i = 0; i < mon_n_f.length; i++)
+{
+    for (var j = 0; j < dparts.length; j++)
+{
+        f.writeLine("(" + mon_n_f[i] + ")(" + dparts[j] + ") = " + tf(mon_a_f_dpart[i][j], 2));
+}
+}
 
 
     f.close();
