@@ -192,18 +192,18 @@ exp_a[exp_n.indexOf(ent[e].field("Category_Expense"))] += pf(ent[e].field("Sum")
     
     
     
-        exp_a_f_year[inc_n_f.indexOf(ent[e].field("Category_Expense"))]
+        exp_a_f_year[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
     [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
     
-    exp_a_f_quorter[inc_n_f.indexOf(ent[e].field("Category_Expense"))]
+    exp_a_f_quorter[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
 [quorters.indexOf(quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
-        exp_a_f_month[inc_n_f.indexOf(ent[e].field("Category_Expense"))]
+        exp_a_f_month[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
 [months.indexOf((ent[e].field("Date").getMonth() + 1) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
-            exp_a_f_dpart[inc_n_f.indexOf(ent[e].field("Category_Expense"))]
+            exp_a_f_dpart[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
 [dparts.indexOf(dayp(ent[e].field("Date")) + "_" + (ent[e].field("Date").getMonth() + 1) + "_" +
                 moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
