@@ -184,7 +184,7 @@ mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].fiel
         += pf(ent[e].field("Sum"));
     
             mon_a_f_dpart[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
-[dparts.indexOf(dayp(ent[e].field("Date")) + "_" (ent[e].field("Date").getMonth() + 1) + "_" +
+[dparts.indexOf(dayp(ent[e].field("Date")) + "_" + (ent[e].field("Date").getMonth() + 1) + "_" +
                 moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
