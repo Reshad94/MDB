@@ -271,15 +271,8 @@ f = file("/sdcard/memento/frequently.txt");
 {
         f.writeLine(mon_n_f[i]);
 }
-                f.writeLine(divider);
-    for (var i = 0; i < months.length; i++)
-{
-        f.writeLine(months[i]);
-}
-                    f.writeLine(divider);
-    for (var i = 0; i < dparts.length; i++)
-{
-        f.writeLine(dparts[i]);
+
+
 }
     f.close();
 //reporting end
