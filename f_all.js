@@ -167,8 +167,13 @@ exp_a[exp_n.indexOf(ent[e].field("Category_Expense"))] += pf(ent[e].field("Sum")
 if (ent[e].field("transactionType") == 1)
 {
 mon_a[mon_n.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))] += pf(ent[e].field("Sum"));
+    
 mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
     [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
+    
+    mon_a_f_quorter[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
+[quorters.indexOf(quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
+    
     f.writeLine("id = " + ent[e].field("ID") + " " + ent[e].field("Account") + "   ==>   " + ent[e].field("_Account") + " " + 
                moment(date_t(ent[e].field("Date"))).toDate().getFullYear() + " sum = " + tf(pf(ent[e].field("Sum")), 2) +
          " mon_n_f.index: " +  mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account")) +
@@ -251,6 +256,14 @@ f = file("/sdcard/memento/frequently.txt");
     for (var j = 0; j < years.length; j++)
 {
         f.writeLine("(" + mon_n_f[i] + ")(" + years[j] + ") = " + tf(mon_a_f_year[i][j], 2));
+}
+}
+            f.writeLine(divider);
+            for (var i = 0; i < mon_n_f.length; i++)
+{
+    for (var j = 0; j < quorters.length; j++)
+{
+        f.writeLine("(" + mon_n_f[i] + ")(" + quorters[j] + ") = " + tf(mon_a_f_quorter[i][j], 2));
 }
 }
             f.writeLine(divider);
