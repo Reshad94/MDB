@@ -273,7 +273,7 @@ f = file("/sdcard/memento/frequently.txt");
 }
 
 
-}
+
     f.close();
 //reporting end
 
