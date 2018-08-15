@@ -29,6 +29,12 @@ function two_dim_array_inisial_zero(arr, numRows, numColumns) {
 	for(var i = 0; i < numRows; i++) {
 		arr[i] = []; 
 	}
+for(var i = 0; i < numRows; i++) {
+	for(var j = 0; j < numColumns; j++) {
+		arr[i][j] = 0.00;
+	}
+}
+	
 }
 
 //------------------------------------------------------------------
