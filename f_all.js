@@ -173,8 +173,8 @@ mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].fiel
                moment(date_t(ent[e].field("Date"))).toDate().getFullYear() + " sum = " + tf(pf(ent[e].field("Sum")), 2) +
          " mon_n_f.index: " +  mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account")) +
                 " years.indexof: " + years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear()) +
-                "res: " + mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
-    [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+                "res: " + tf(mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
+    [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())], 2)
                 );
 }
 //---------------
@@ -246,15 +246,11 @@ f.writeLine(divider);
 f.close();
 //-------------------@@@
 f = file("/sdcard/memento/frequently.txt");
-f.writeLine("min:     " + moment(min_date).format("DD-MM-YYYY"));
-f.writeLine(divider);
-    f.writeLine("max:     " + moment(max_date).format("DD-MM-YYYY"));
-    f.writeLine(divider);
         for (var i = 0; i < mon_n_f.length; i++)
 {
     for (var j = 0; j < years.length; j++)
 {
-        f.writeLine("(" + mon_n_f[i] + ")(" + years[j] + ") = " + tf(mon_a_f_year[i][j], 2));
+        f.writeLine("(" + mon_n_f[i] + ")(" + years[j] + ") = " + tf(mon_a_f_year[j][i], 2));
 }
 }
             f.writeLine(divider);
