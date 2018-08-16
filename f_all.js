@@ -312,15 +312,18 @@ f.writeLine(divider);
 f.close();
 //-------------------@@@
 f = file("/sdcard/memento/frequently.txt");
-    
+    var s = "";
     f.writeLine("Money Transfer");
     f.writeLine(divider);
         for (var i = 0; i < mon_n_f.length; i++)
 {
+    s = mon_n_f[i] + ":";
     for (var j = 0; j < years.length; j++)
 {
-        f.writeLine("(" + mon_n_f[i] + ")(" + years[j] + ") = " + tf(mon_a_f_year[i][j], 2));
+       s += "    (" + years[j] + ") = " + tf(mon_a_f_year[i][j], 2);
 }
+     f.writeLine(s);
+    s = "";
 }
             f.writeLine(divider);
             for (var i = 0; i < mon_n_f.length; i++)
