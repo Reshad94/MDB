@@ -328,38 +328,49 @@ f = file("/sdcard/memento/frequently.txt");
             f.writeLine(divider);
             for (var i = 0; i < mon_n_f.length; i++)
 {
+    s = mon_n_f[i] + ":";
     for (var j = 0; j < quorters.length; j++)
 {
-        f.writeLine("(" + mon_n_f[i] + ")(" + quorters[j] + ") = " + tf(mon_a_f_quorter[i][j], 2));
+    s += "    (" + quorters[j] + ") = " + tf(mon_a_f_quorter[i][j], 2);
 }
+         f.writeLine(s);
+    s = "";
 }
             f.writeLine(divider);
             for (var i = 0; i < mon_n_f.length; i++)
 {
+    s = mon_n_f[i] + ":";
     for (var j = 0; j < months.length; j++)
 {
-        f.writeLine("(" + mon_n_f[i] + ")(" + months[j] + ") = " + tf(mon_a_f_month[i][j], 2));
+    s += "    (" + months[j] + ") = " + tf(mon_a_f_month[i][j], 2);
 }
+             f.writeLine(s);
+    s = "";
 }
             f.writeLine(divider);
             for (var i = 0; i < mon_n_f.length; i++)
 {
+     s = mon_n_f[i] + ":";
     for (var j = 0; j < dparts.length; j++)
 {
-        f.writeLine("(" + mon_n_f[i] + ")(" + dparts[j] + ") = " + tf(mon_a_f_dpart[i][j], 2));
+    s += "    (" + dparts[j] + ") = " + tf(mon_a_f_dpart[i][j], 2);
 }
+                 f.writeLine(s);
+    s = "";
 }
-
     
     f.writeLine(divider);
     f.writeLine("Incomes");
     f.writeLine(divider);
             for (var i = 0; i < inc_n_f.length; i++)
 {
+         s = inc_n_f[i] + ":";
     for (var j = 0; j < years.length; j++)
 {
-        f.writeLine("(" + inc_n_f[i] + ")(" + years[j] + ") = " + tf(inc_a_f_year[i][j], 2));
+        s += "    (" + years[j] + ") = " + tf(inc_a_f_year[i][j], 2);
 }
+                     f.writeLine(s);
+    s = "";
 }
             f.writeLine(divider);
             for (var i = 0; i < inc_n_f.length; i++)
