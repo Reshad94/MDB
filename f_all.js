@@ -308,9 +308,9 @@ if (pf(op_a[j]) > 0)
 f.writeLine('"' + divider + '","' + divs + '"');
 f.close();
 //-------------------@@@
-f = file("/sdcard/memento/frequently.txt");
+f = file("/sdcard/memento/frequently.csv");
     var s = "";
-    f.writeLine("Money Transfer");
+             f.writeLine('"Money Transfer",""');
     f.writeLine(divider);
         for (var i = 0; i < mon_n_f.length; i++)
 {
