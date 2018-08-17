@@ -314,11 +314,13 @@ f = file("/sdcard/memento/frequently_year.csv");
     var title = '"Name"';
     var divider_new = '"' + divid + '"';
     var word_m_t = '"Money Transfer"';
+    var word_inc = '"Incomes"';
     for(var i = 0; i < years.length; i++)
     {
      title += ',"' + years[i] + '"';   
         divider_new += ',"' + divid + '"';
         word_m_t += ',""';
+        word_inc += ',""';
     }
     f.writeLine(title);
              f.writeLine(word_m_t);
@@ -334,53 +336,23 @@ f = file("/sdcard/memento/frequently_year.csv");
     s = "";
 }
             f.writeLine(divider_new);
-            for (var i = 0; i < mon_n_f.length; i++)
-{
-    s = mon_n_f[i] + ":";
-    for (var j = 0; j < quorters.length; j++)
-{
-    s += "    (" + quorters[j] + ") = " + tf(mon_a_f_quorter[i][j], 2);
-}
-         f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider);
-            for (var i = 0; i < mon_n_f.length; i++)
-{
-    s = mon_n_f[i] + ":";
-    for (var j = 0; j < months.length; j++)
-{
-    s += "    (" + months[j] + ") = " + tf(mon_a_f_month[i][j], 2);
-}
-             f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider);
-            for (var i = 0; i < mon_n_f.length; i++)
-{
-     s = mon_n_f[i] + ":";
-    for (var j = 0; j < dparts.length; j++)
-{
-    s += "    (" + dparts[j] + ") = " + tf(mon_a_f_dpart[i][j], 2);
-}
-                 f.writeLine(s);
-    s = "";
-}
-    
-    f.writeLine(divider);
-    f.writeLine("Incomes");
-    f.writeLine(divider);
+f.writeLine(word_inc);
+    f.writeLine(divider_new);
             for (var i = 0; i < inc_n_f.length; i++)
 {
-         s = inc_n_f[i] + ":";
+        s = '"' + inc_n_f[i] + '"';
     for (var j = 0; j < years.length; j++)
 {
-        s += "    (" + years[j] + ") = " + tf(inc_a_f_year[i][j], 2);
+           s += ',"' + tf(inc_a_f_year[i][j], 2) + '"';
 }
                      f.writeLine(s);
     s = "";
 }
-            f.writeLine(divider);
+            f.writeLine(divider_new);
+    
+    
+    
+    
             for (var i = 0; i < inc_n_f.length; i++)
 {
              s = inc_n_f[i] + ":";
