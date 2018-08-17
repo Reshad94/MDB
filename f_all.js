@@ -308,9 +308,17 @@ if (pf(op_a[j]) > 0)
 f.writeLine('"' + divider + '","' + divs + '"');
 f.close();
 //-------------------@@@
-f = file("/sdcard/memento/frequently.csv");
+f = file("/sdcard/memento/frequently_year.csv");
     var s = "";
-             f.writeLine('"Money Transfer",""');
+    var title = '"Name"';
+    var word_m_t = '"Money Transfer"';
+    for(var i = 0; i < years.length; i++)
+    {
+     title += ',"' + years[i] + '"';   
+        word_m_t += ',""';
+    }
+    f.writeLine(title);
+             f.writeLine(word);
     f.writeLine(divider);
         for (var i = 0; i < mon_n_f.length; i++)
 {
