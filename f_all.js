@@ -253,10 +253,11 @@ array_sort_desc(acs, ams);
 array_sort_desc(op_n, op_a);
 //-------------------@@@
 var divider = "-------------------------------------------------------";
+    var divs = "----------";
 f = file("/sdcard/memento/report.csv");
     f.writeLine('"Name", "Sum"');
 f.writeLine('"Assets", "' + tf(a_sum, 2) + '"');
-f.writeLine('"' + divider + '",');
+f.writeLine('"' + divider + '", "' + divs + '"');
 for (var j = 0; j < acs.length; j++) 
 {
 if (pf(ams[j]) > 0)
@@ -265,9 +266,9 @@ f.writeLine(acs[j] + ":     " + tf(ams[j], 2));
 
 }
 }
-f.writeLine(divider);
+f.writeLine('"' + divider + '", "' + divs + '"');
 f.writeLine("Incomes:     " + tf(i_sum, 2));
-f.writeLine(divider);
+f.writeLine('"' + divider + '", "' + divs + '"');
 for (var j = 0; j < inc_n.length; j++) 
 {
 if (pf(inc_a[j]) > 0)
@@ -276,9 +277,9 @@ f.writeLine(inc_n[j] + ":     " + tf(inc_a[j], 2));
 
 }
 }
-f.writeLine(divider);
+f.writeLine('"' + divider + '", "' + divs + '"');
 f.writeLine("Expenses:     " + tf(e_sum, 2));
-f.writeLine(divider);
+f.writeLine('"' + divider + '", "' + divs + '"');
 for (var j = 0; j < exp_n.length; j++) 
 {
 if (pf(exp_a[j]) > 0)
@@ -287,9 +288,9 @@ f.writeLine(exp_n[j] + ":     " + tf(exp_a[j], 2));
 
 }
 }
-f.writeLine(divider);
+f.writeLine('"' + divider + '", "' + divs + '"');
 f.writeLine("Money Transfer:     " + tf(m_sum, 2));
-f.writeLine(divider);
+f.writeLine('"' + divider + '", "' + divs + '"');
 for (var j = 0; j < mon_n.length; j++) 
 {
 if (pf(mon_a[j]) > 0)
@@ -298,9 +299,9 @@ f.writeLine(mon_n[j] + "     " + tf(mon_a[j], 2));
 
 }
 }
-f.writeLine(divider);
+f.writeLine('"' + divider + '", "' + divs + '"');
 f.writeLine("Opening Balance:     " + tf(o_sum, 2));
-f.writeLine(divider);
+f.writeLine('"' + divider + '", "' + divs + '"');
 for (var j = 0; j < op_n.length; j++)
 {
 if (pf(op_a[j]) > 0)
@@ -309,7 +310,7 @@ f.writeLine(op_n[j] + "     " + tf(op_a[j], 2));
 
 }
 }
-f.writeLine(divider);
+f.writeLine('"' + divider + '", "' + divs + '"');
 f.close();
 //-------------------@@@
 f = file("/sdcard/memento/frequently.txt");
