@@ -115,7 +115,7 @@ return sum
 function f_print_each(a1, a2, a3, a4, a5, a6, a7, a8, a9, str, dt)
 {
   var divider = "-------------------------------------------------------";
-  f = file("/sdcard/memento/compare-" + dt + " .txt");
+  f = file("/sdcard/memento/compare/compare-" + dt + " .txt");
   f.writeLine(str);
   f.writeLine(divider);
   for (var e = 0; e < a1.length; e++) 
