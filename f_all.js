@@ -310,16 +310,19 @@ f.close();
 //-------------------@@@
 f = file("/sdcard/memento/frequently_year.csv");
     var s = "";
+    var divid = "----------";
     var title = '"Name"';
+    var divider_new = '"' + divid + '"';
     var word_m_t = '"Money Transfer"';
     for(var i = 0; i < years.length; i++)
     {
      title += ',"' + years[i] + '"';   
+        divider_new += ',""';
         word_m_t += ',""';
     }
     f.writeLine(title);
              f.writeLine(word);
-    f.writeLine(divider);
+    f.writeLine(divider_new);
         for (var i = 0; i < mon_n_f.length; i++)
 {
     s = mon_n_f[i] + ":";
@@ -330,7 +333,7 @@ f = file("/sdcard/memento/frequently_year.csv");
      f.writeLine(s);
     s = "";
 }
-            f.writeLine(divider);
+            f.writeLine(divider_new);
             for (var i = 0; i < mon_n_f.length; i++)
 {
     s = mon_n_f[i] + ":";
