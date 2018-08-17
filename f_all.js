@@ -253,8 +253,9 @@ array_sort_desc(acs, ams);
 array_sort_desc(op_n, op_a);
 //-------------------@@@
 var divider = "-------------------------------------------------------";
-f = file("/sdcard/memento/reporting.txt");
-f.writeLine("Assets:     " + tf(a_sum, 2));
+f = file("/sdcard/memento/reporting.csv");
+    f.writeLine('"Name", "Sum"');
+f.writeLine('"Assets", "' + tf(a_sum, 2) + '"');
 f.writeLine(divider);
 for (var j = 0; j < acs.length; j++) 
 {
