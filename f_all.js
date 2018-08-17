@@ -317,7 +317,7 @@ f = file("/sdcard/memento/frequently_year.csv");
     for(var i = 0; i < years.length; i++)
     {
      title += ',"' + years[i] + '"';   
-        divider_new += ',""';
+        divider_new += ',"' + divid + '"';
         word_m_t += ',""';
     }
     f.writeLine(title);
@@ -325,10 +325,10 @@ f = file("/sdcard/memento/frequently_year.csv");
     f.writeLine(divider_new);
         for (var i = 0; i < mon_n_f.length; i++)
 {
-    s = mon_n_f[i] + ":";
+    s = '"' + mon_n_f[i] + '"';
     for (var j = 0; j < years.length; j++)
 {
-       s += "    (" + years[j] + ") = " + tf(mon_a_f_year[i][j], 2);
+       s += ',"' + tf(mon_a_f_year[i][j], 2) + '"';
 }
      f.writeLine(s);
     s = "";
