@@ -315,12 +315,14 @@ f = file("/sdcard/memento/frequently_year.csv");
     var divider_new = '"' + divid + '"';
     var word_m_t = '"Money Transfer"';
     var word_inc = '"Incomes"';
+        var word_exp = '"Expenses"';
     for(var i = 0; i < years.length; i++)
     {
      title += ',"' + years[i] + '"';   
         divider_new += ',"' + divid + '"';
         word_m_t += ',""';
         word_inc += ',""';
+         word_exp += ',""';
     }
     f.writeLine(title);
              f.writeLine(word_m_t);
@@ -349,94 +351,22 @@ f.writeLine(word_inc);
     s = "";
 }
             f.writeLine(divider_new);
-    
-    
-    
-    
-            for (var i = 0; i < inc_n_f.length; i++)
-{
-             s = inc_n_f[i] + ":";
-    for (var j = 0; j < quorters.length; j++)
-{
-            s += "    (" + quorters[j] + ") = " + tf(inc_a_f_quorter[i][j], 2);
-}
-                         f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider);
-            for (var i = 0; i < inc_n_f.length; i++)
-{
-                 s = inc_n_f[i] + ":";
-    for (var j = 0; j < months.length; j++)
-{
-                s += "    (" + months[j] + ") = " + tf(inc_a_f_month[i][j], 2);
-}
-                             f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider);
-            for (var i = 0; i < inc_n_f.length; i++)
-{
-                     s = inc_n_f[i] + ":";
-    for (var j = 0; j < dparts.length; j++)
-{
-                    s += "    (" + dparts[j] + ") = " + tf(inc_a_f_dpart[i][j], 2);
-}
-                                 f.writeLine(s);
-    s = "";
-}
-    
-    
-        f.writeLine(divider);
-    f.writeLine("Expenses");
-    f.writeLine(divider);
-    
+f.writeLine(word_exp);
+            f.writeLine(divider_new); 
                 for (var i = 0; i < exp_n_f.length; i++)
 {
-                         s = exp_n_f[i] + ":";
+            s = '"' + exp_n_f[i] + '"';
     for (var j = 0; j < years.length; j++)
 {
-                        s += "    (" + years[j] + ") = " + tf(exp_a_f_year[i][j], 2);
+               s += ',"' + tf(exp_a_f_year[i][j], 2) + '"';
 }
                                      f.writeLine(s);
     s = "";
 }
-            f.writeLine(divider);
-            for (var i = 0; i < exp_n_f.length; i++)
-{
-                             s = exp_n_f[i] + ":";
-    for (var j = 0; j < quorters.length; j++)
-{
-                            s += "    (" + quorters[j] + ") = " + tf(exp_a_f_quorter[i][j], 2);
-}
-                                         f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider);
-            for (var i = 0; i < exp_n_f.length; i++)
-{
-                                 s = exp_n_f[i] + ":";
-    for (var j = 0; j < months.length; j++)
-{
-                                s += "    (" + months[j] + ") = " + tf(exp_a_f_month[i][j], 2);
-}
-                                             f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider);
-            for (var i = 0; i < exp_n_f.length; i++)
-{
-                                     s = exp_n_f[i] + ":";
-    for (var j = 0; j < dparts.length; j++)
-{
-                                    s += "    (" + dparts[j] + ") = " + tf(exp_a_f_dpart[i][j], 2);
-}
-                                                 f.writeLine(s);
-    s = "";
-}
+            f.writeLine(divider_new); 
     
     
-    
+ //year bitdi.   
     
 
     f.close();
