@@ -88,7 +88,7 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
                     {all_parts.push("q_" + (t / 3) + "_" + i);} 
                     else
                     {
-                        all_parts.push("q_" + pi(t / 3) + 1 + "_" + i);
+                        all_parts.push("q_" + (parseInt(t / 3) + 1) + "_" + i);
                     }
                 }
                 else
