@@ -427,6 +427,68 @@ f.writeLine(word_exp);
         f.close();
  //quorter bitdi.   
     
+    
+    
+    //month basladi
+    f = file("/sdcard/memento/frequently_month.csv");   
+     title = '"Name"';
+     divider_new = '"' + divid + '"';
+     word_m_t = '"Money Transfer"';
+     word_inc = '"Incomes"';
+     word_exp = '"Expenses"';
+        for(var i = 0; i < months.length; i++)
+    {
+     title += ',"' + months[i] + '"';   
+        divider_new += ',"' + divid + '"';
+        word_m_t += ',""';
+        word_inc += ',""';
+         word_exp += ',""';
+    }
+    f.writeLine(title);
+             f.writeLine(word_m_t);
+    f.writeLine(divider_new);
+        for (var i = 0; i < mon_n_f.length; i++)
+{
+    s = '"' + mon_n_f[i] + '"';
+    for (var j = 0; j < months.length; j++)
+{
+       s += ',"' + tf(mon_a_f_month[i][j], 2) + '"';
+}
+     f.writeLine(s);
+    s = "";
+}
+            f.writeLine(divider_new);
+f.writeLine(word_inc);
+    f.writeLine(divider_new);
+            for (var i = 0; i < inc_n_f.length; i++)
+{
+        s = '"' + inc_n_f[i] + '"';
+    for (var j = 0; j < months.length; j++)
+{
+           s += ',"' + tf(inc_a_f_month[i][j], 2) + '"';
+}
+                     f.writeLine(s);
+    s = "";
+}
+            f.writeLine(divider_new);
+f.writeLine(word_exp);
+            f.writeLine(divider_new); 
+                for (var i = 0; i < exp_n_f.length; i++)
+{
+            s = '"' + exp_n_f[i] + '"';
+    for (var j = 0; j < months.length; j++)
+{
+               s += ',"' + tf(exp_a_f_month[i][j], 2) + '"';
+}
+                                     f.writeLine(s);
+    s = "";
+}
+            f.writeLine(divider_new); 
+    
+        f.close();
+ //month bitdi.   
+    
+    
 //reporting end
 
 //insurance begin
