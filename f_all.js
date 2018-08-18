@@ -58,9 +58,12 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
                 for(var n = 1; n <= 3; n++)
                 {
                     dparts.push(n + "_" + k + "_" + i);
-                    all_parts.push(n + "_" + k + "_" + i);
+                    all_parts.push(n + "_" + k + "_" + i);//dpart
                 }
-                all_parts.push("m_" + k + "_" + i);   
+                all_parts.push("m_" + k + "_" + i);//month   
+                if(k % 3 == 0)//quorter  
+                {all_parts.push("q_" + (k / 3) + "_" + i);}
+                
             }
     }
         else
@@ -76,9 +79,10 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
                 for(var n = 1; n <= 3; n++)
                 {
                     dparts.push(n + "_" + t + "_" + i);
-                    all_parts.push(n + "_" + t + "_" + i);
+                    all_parts.push(n + "_" + t + "_" + i);//dpart
                 }
-                all_parts.push("m_" + t + "_" + i);   
+                all_parts.push("m_" + t + "_" + i);//month   
+
             }
     }
         else
@@ -93,12 +97,14 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
                 for(var n = 1; n <= 3; n++)
                 {
                     dparts.push(n + "_" + j + "_" + i);
-                      all_parts.push(n + "_" + j + "_" + i);
+                      all_parts.push(n + "_" + j + "_" + i);//dpart
                 }
-                all_parts.push("m_" + j + "_" + i); 
+                all_parts.push("m_" + j + "_" + i);//month 
+                if(j % 3 == 0)//quorter  
+                {all_parts.push("q_" + (j / 3) + "_" + i);}
             }
         }
-        all_parts.push(i);
+        all_parts.push(i);//year
     }
 //-------------------------- 
     var inc_a_f_year = [], inc_a_f_quorter = [], inc_a_f_month = [], inc_a_f_dpart = [],
