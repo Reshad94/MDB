@@ -5,7 +5,7 @@ var ent = libByName("Reporting").entries();
 var acs = [], ams = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
     inc_n_f = [], exp_n_f = [], mon_n_f = [];
 var min_date = new Date(2017, 04, 01), max_date = date_now();
-var years = [], quorters = [], months = [], dparts = [];
+var years = [], quorters = [], months = [], dparts = [], all_parts = [];
 var a_sum = 0, i_sum = 0, e_sum = 0, m_sum = 0, o_sum = 0;
 //------------------------@@@
 for (var e = 0; e < ent.length; e++) 
@@ -58,7 +58,9 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
                 for(var n = 1; n <= 3; n++)
                 {
                     dparts.push(n + "_" + k + "_" + i);
+                    all_parts.push(n + "_" + k + "_" + i);
                 }
+                all_parts.push("m_" + k + "_" + i);   
             }
     }
         else
@@ -74,7 +76,9 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
                 for(var n = 1; n <= 3; n++)
                 {
                     dparts.push(n + "_" + t + "_" + i);
+                    all_parts.push(n + "_" + t + "_" + i);
                 }
+                all_parts.push("m_" + t + "_" + i);   
             }
     }
         else
@@ -89,9 +93,12 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
                 for(var n = 1; n <= 3; n++)
                 {
                     dparts.push(n + "_" + j + "_" + i);
+                      all_parts.push(n + "_" + j + "_" + i);
                 }
+                all_parts.push("m_" + j + "_" + i); 
             }
         }
+        all_parts.push(i);
     }
 //-------------------------- 
     var inc_a_f_year = [], inc_a_f_quorter = [], inc_a_f_month = [], inc_a_f_dpart = [],
@@ -549,6 +556,19 @@ f.writeLine(word_exp);
         f.close();
  //dpart bitdi.   
  
+    
+    
+    
+        f = file("/sdcard/memento/all_parts.csv");   
+        title = '"Name"';
+        for(var i = 0; i < all_parts.length; i++)
+    {
+     title += ',"' + all_parts[i] + '"';   
+    }
+    f.writeLine(title);
+     f.close();  
+    
+    
     
     
     
