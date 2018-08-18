@@ -5,7 +5,7 @@ var ent = libByName("Reporting").entries();
 var acs = [], ams = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
     inc_n_f = [], exp_n_f = [], mon_n_f = [];
 var min_date = new Date(2017, 04, 01), max_date = date_now();
-var years = [], quorters = [], months = [], dparts = [], all_parts = [];
+var all_parts = [];
 var a_sum = 0, i_sum = 0, e_sum = 0, m_sum = 0, o_sum = 0;
 //------------------------@@@
 for (var e = 0; e < ent.length; e++) 
@@ -45,40 +45,26 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
 //--------------------------    
     for (var i = min_date.getFullYear(); i <= max_date.getFullYear(); i++)
     {
-        years.push(i);
     if ( i == min_date.getFullYear() )
     {
-        for(var k = quorter(min_date); k <= 4; k++)
-            {
-             quorters.push(k + "_" + i);   
-            }
         for(var k = min_date.getMonth()+1; k <= 12; k++)
-            {
-             months.push(k + "_" + i);   
+            { 
                 for(var n = 1; n <= 3; n++)
                 {
-                    dparts.push(n + "_" + k + "_" + i);
                     all_parts.push(n + "_" + k + "_" + i);//dpart
                 }
                 all_parts.push("m_" + k + "_" + i);//month   
                 if(k % 3 == 0)//quorter  
-                {all_parts.push("q_" + (k / 3) + "_" + i);}
-                
+                {all_parts.push("q_" + (k / 3) + "_" + i);}             
             }
     }
         else
     if ( i == max_date.getFullYear() )   
     {
-        for(var t = 1; t <= quorter(max_date); t++)
-            {
-             quorters.push(t + "_" + i);   
-            }
         for(var t = 1; t <= max_date.getMonth()+1; t++)
             {
-             months.push(t + "_" + i);   
                 for(var n = 1; n <= 3; n++)
                 {
-                    dparts.push(n + "_" + t + "_" + i);
                     all_parts.push(n + "_" + t + "_" + i);//dpart
                 }
                 all_parts.push("m_" + t + "_" + i);//month   
@@ -98,16 +84,10 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
     }
         else
         {
-            for(var j = 1; j <= 4; j++)
-            {
-             quorters.push(j + "_" + i);   
-            }
             for(var j = 1; j <= 12; j++)
-            {
-             months.push(j + "_" + i);   
+            {  
                 for(var n = 1; n <= 3; n++)
                 {
-                    dparts.push(n + "_" + j + "_" + i);
                       all_parts.push(n + "_" + j + "_" + i);//dpart
                 }
                 all_parts.push("m_" + j + "_" + i);//month 
@@ -118,33 +98,15 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
         all_parts.push(i);//year
     }
 //-------------------------- 
-    var inc_a_f_year = [], inc_a_f_quorter = [], inc_a_f_month = [], inc_a_f_dpart = [],
-    exp_a_f_year = [], exp_a_f_quorter = [], exp_a_f_month = [], exp_a_f_dpart = [],
-    mon_a_f_year =  [], 
-    mon_a_f_quorter = [], 
-    mon_a_f_month = [], 
-    mon_a_f_dpart = [];
-    
-    two_dim_array_inisial_zero(inc_a_f_year, inc_n_f.length, years.length);
-    two_dim_array_inisial_zero(inc_a_f_quorter, inc_n_f.length, quorters.length);
-    two_dim_array_inisial_zero(inc_a_f_month, inc_n_f.length, months.length);
-    two_dim_array_inisial_zero(inc_a_f_dpart, inc_n_f.length, dparts.length);
-    
-    two_dim_array_inisial_zero(exp_a_f_year, exp_n_f.length, years.length);
-    two_dim_array_inisial_zero(exp_a_f_quorter, exp_n_f.length, quorters.length);
-    two_dim_array_inisial_zero(exp_a_f_month, exp_n_f.length, months.length);
-    two_dim_array_inisial_zero(exp_a_f_dpart, exp_n_f.length, dparts.length);
-    
-    two_dim_array_inisial_zero(mon_a_f_year, mon_n_f.length, years.length);
-    two_dim_array_inisial_zero(mon_a_f_quorter, mon_n_f.length, quorters.length);
-    two_dim_array_inisial_zero(mon_a_f_month, mon_n_f.length, months.length);
-    two_dim_array_inisial_zero(mon_a_f_dpart, mon_n_f.length, dparts.length);
+    var inc_a_f_all = [], exp_a_f_all = [], mon_a_f_all =  [];   
+    two_dim_array_inisial_zero(inc_a_f_all, inc_n_f.length, all_parts.length);  
+    two_dim_array_inisial_zero(exp_a_f_all, exp_n_f.length, all_parts.length); 
+    two_dim_array_inisial_zero(mon_a_f_all, mon_n_f.length, all_parts.length);
 //-----------------------@@@
 array_inisial_zero(ams, acs.length);
 array_inisial_zero(inc_a, inc_n.length);
 array_inisial_zero(exp_a, exp_n.length);
 array_inisial_zero(mon_a, mon_n.length);
-    //f = file("/sdcard/memento/test.txt");
 //----------------------@@@
 for (var e = 0; e < ent.length; e++) 
 {
@@ -189,19 +151,19 @@ inc_a[inc_n.indexOf(ent[e].field("Category_Income"))] += pf(ent[e].field("Sum"))
     
     
     
-    inc_a_f_year[inc_n_f.indexOf(ent[e].field("Category_Income"))]
-    [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
+    inc_a_f_all[inc_n_f.indexOf(ent[e].field("Category_Income"))]
+    [all_parts.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
     
-    inc_a_f_quorter[inc_n_f.indexOf(ent[e].field("Category_Income"))]
-[quorters.indexOf(quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+    inc_a_f_all[inc_n_f.indexOf(ent[e].field("Category_Income"))]
+[all_parts.indexOf("q_" + quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
-        inc_a_f_month[inc_n_f.indexOf(ent[e].field("Category_Income"))]
-[months.indexOf((ent[e].field("Date").getMonth() + 1) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        inc_a_f_all[inc_n_f.indexOf(ent[e].field("Category_Income"))]
+[all_parts.indexOf("m_" + (ent[e].field("Date").getMonth() + 1) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
-            inc_a_f_dpart[inc_n_f.indexOf(ent[e].field("Category_Income"))]
-[dparts.indexOf(dayp(ent[e].field("Date")) + "_" + (ent[e].field("Date").getMonth() + 1) + "_" +
+            inc_a_f_all[inc_n_f.indexOf(ent[e].field("Category_Income"))]
+[all_parts.indexOf(dayp(ent[e].field("Date")) + "_" + (ent[e].field("Date").getMonth() + 1) + "_" +
                 moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
@@ -216,19 +178,19 @@ exp_a[exp_n.indexOf(ent[e].field("Category_Expense"))] += pf(ent[e].field("Sum")
     
     
     
-        exp_a_f_year[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
-    [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
+        exp_a_f_all[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
+    [all_parts.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
     
-    exp_a_f_quorter[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
-[quorters.indexOf(quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+    exp_a_f_all[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
+[all_parts.indexOf("q_" + quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
-        exp_a_f_month[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
-[months.indexOf((ent[e].field("Date").getMonth() + 1) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        exp_a_f_all[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
+[all_parts.indexOf("m_" + (ent[e].field("Date").getMonth() + 1) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
-            exp_a_f_dpart[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
-[dparts.indexOf(dayp(ent[e].field("Date")) + "_" + (ent[e].field("Date").getMonth() + 1) + "_" +
+            exp_a_f_all[exp_n_f.indexOf(ent[e].field("Category_Expense"))]
+[all_parts.indexOf(dayp(ent[e].field("Date")) + "_" + (ent[e].field("Date").getMonth() + 1) + "_" +
                 moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
@@ -242,29 +204,23 @@ if (ent[e].field("transactionType") == 1)
 {
 mon_a[mon_n.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))] += pf(ent[e].field("Sum"));
     
-mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
-    [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
+mon_a_f_all[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
+    [all_parts.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())] += pf(ent[e].field("Sum"));
     
-    mon_a_f_quorter[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
-[quorters.indexOf(quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+    mon_a_f_all[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
+[all_parts.indexOf("q_" + quorter(ent[e].field("Date")) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
-        mon_a_f_month[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
-[months.indexOf((ent[e].field("Date").getMonth() + 1) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
+        mon_a_f_all[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
+[all_parts.indexOf("m_" + (ent[e].field("Date").getMonth() + 1) + "_" + moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
-            mon_a_f_dpart[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
-[dparts.indexOf(dayp(ent[e].field("Date")) + "_" + (ent[e].field("Date").getMonth() + 1) + "_" +
+            mon_a_f_all[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
+[all_parts.indexOf(dayp(ent[e].field("Date")) + "_" + (ent[e].field("Date").getMonth() + 1) + "_" +
                 moment(date_t(ent[e].field("Date"))).toDate().getFullYear())]
         += pf(ent[e].field("Sum"));
     
-//    f.writeLine("id = " + ent[e].field("ID") + " " + ent[e].field("Account") + "   ==>   " + ent[e].field("_Account") + " " + 
-//               moment(date_t(ent[e].field("Date"))).toDate().getFullYear() + " sum = " + tf(pf(ent[e].field("Sum")), 2) +
-//         " mon_n_f.index: " +  mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account")) +
- //               " years.indexof: " + years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear()) +
-//                " res: " + tf(mon_a_f_year[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"))]
-//    [years.indexOf(moment(date_t(ent[e].field("Date"))).toDate().getFullYear())], 2)
- //               );
+
 }
 //---------------
 }
@@ -332,7 +288,7 @@ if (pf(op_a[j]) > 0)
 f.writeLine('"' + divider + '","' + divs + '"');
 f.close();
 //-------------------@@@
-f = file("/sdcard/memento/frequently_year.csv");
+f = file("/sdcard/memento/frequently.csv");
     var s = "";
     var divid = "----------";
     var title = '"Name"';
@@ -340,254 +296,57 @@ f = file("/sdcard/memento/frequently_year.csv");
     var word_m_t = '"Money Transfer"';
     var word_inc = '"Incomes"';
         var word_exp = '"Expenses"';
-    //year basladi
-    for(var i = 0; i < years.length; i++)
-    {
-     title += ',"' + years[i] + '"';   
-        divider_new += ',"' + divid + '"';
-        word_m_t += ',""';
-        word_inc += ',""';
-         word_exp += ',""';
-    }
-    f.writeLine(title);
-             f.writeLine(word_m_t);
-    f.writeLine(divider_new);
-        for (var i = 0; i < mon_n_f.length; i++)
-{
-    s = '"' + mon_n_f[i] + '"';
-    for (var j = 0; j < years.length; j++)
-{
-       s += ',"' + tf(mon_a_f_year[i][j], 2) + '"';
-}
-     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new);
-f.writeLine(word_inc);
-    f.writeLine(divider_new);
-            for (var i = 0; i < inc_n_f.length; i++)
-{
-        s = '"' + inc_n_f[i] + '"';
-    for (var j = 0; j < years.length; j++)
-{
-           s += ',"' + tf(inc_a_f_year[i][j], 2) + '"';
-}
-                     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new);
-f.writeLine(word_exp);
-            f.writeLine(divider_new); 
-                for (var i = 0; i < exp_n_f.length; i++)
-{
-            s = '"' + exp_n_f[i] + '"';
-    for (var j = 0; j < years.length; j++)
-{
-               s += ',"' + tf(exp_a_f_year[i][j], 2) + '"';
-}
-                                     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new); 
-        f.close();
- //year bitdi.   
-
-//quorter basladi
-    f = file("/sdcard/memento/frequently_quorter.csv");   
-     title = '"Name"';
-     divider_new = '"' + divid + '"';
-     word_m_t = '"Money Transfer"';
-     word_inc = '"Incomes"';
-     word_exp = '"Expenses"';
-        for(var i = 0; i < quorters.length; i++)
-    {
-     title += ',"' + quorters[i] + '"';   
-        divider_new += ',"' + divid + '"';
-        word_m_t += ',""';
-        word_inc += ',""';
-         word_exp += ',""';
-    }
-    f.writeLine(title);
-             f.writeLine(word_m_t);
-    f.writeLine(divider_new);
-        for (var i = 0; i < mon_n_f.length; i++)
-{
-    s = '"' + mon_n_f[i] + '"';
-    for (var j = 0; j < quorters.length; j++)
-{
-       s += ',"' + tf(mon_a_f_quorter[i][j], 2) + '"';
-}
-     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new);
-f.writeLine(word_inc);
-    f.writeLine(divider_new);
-            for (var i = 0; i < inc_n_f.length; i++)
-{
-        s = '"' + inc_n_f[i] + '"';
-    for (var j = 0; j < quorters.length; j++)
-{
-           s += ',"' + tf(inc_a_f_quorter[i][j], 2) + '"';
-}
-                     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new);
-f.writeLine(word_exp);
-            f.writeLine(divider_new); 
-                for (var i = 0; i < exp_n_f.length; i++)
-{
-            s = '"' + exp_n_f[i] + '"';
-    for (var j = 0; j < quorters.length; j++)
-{
-               s += ',"' + tf(exp_a_f_quorter[i][j], 2) + '"';
-}
-                                     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new); 
-    
-        f.close();
- //quorter bitdi.   
-    
-    
-    
-    //month basladi
-    f = file("/sdcard/memento/frequently_month.csv");   
-     title = '"Name"';
-     divider_new = '"' + divid + '"';
-     word_m_t = '"Money Transfer"';
-     word_inc = '"Incomes"';
-     word_exp = '"Expenses"';
-        for(var i = 0; i < months.length; i++)
-    {
-     title += ',"' + months[i] + '"';   
-        divider_new += ',"' + divid + '"';
-        word_m_t += ',""';
-        word_inc += ',""';
-         word_exp += ',""';
-    }
-    f.writeLine(title);
-             f.writeLine(word_m_t);
-    f.writeLine(divider_new);
-        for (var i = 0; i < mon_n_f.length; i++)
-{
-    s = '"' + mon_n_f[i] + '"';
-    for (var j = 0; j < months.length; j++)
-{
-       s += ',"' + tf(mon_a_f_month[i][j], 2) + '"';
-}
-     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new);
-f.writeLine(word_inc);
-    f.writeLine(divider_new);
-            for (var i = 0; i < inc_n_f.length; i++)
-{
-        s = '"' + inc_n_f[i] + '"';
-    for (var j = 0; j < months.length; j++)
-{
-           s += ',"' + tf(inc_a_f_month[i][j], 2) + '"';
-}
-                     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new);
-f.writeLine(word_exp);
-            f.writeLine(divider_new); 
-                for (var i = 0; i < exp_n_f.length; i++)
-{
-            s = '"' + exp_n_f[i] + '"';
-    for (var j = 0; j < months.length; j++)
-{
-               s += ',"' + tf(exp_a_f_month[i][j], 2) + '"';
-}
-                                     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new); 
-    
-        f.close();
- //month bitdi.   
-    
-    
-    
-      //dpart basladi
-    f = file("/sdcard/memento/frequently_dpart.csv");   
-     title = '"Name"';
-     divider_new = '"' + divid + '"';
-     word_m_t = '"Money Transfer"';
-     word_inc = '"Incomes"';
-     word_exp = '"Expenses"';
-        for(var i = 0; i < dparts.length; i++)
-    {
-     title += ',"' + dparts[i] + '"';   
-        divider_new += ',"' + divid + '"';
-        word_m_t += ',""';
-        word_inc += ',""';
-         word_exp += ',""';
-    }
-    f.writeLine(title);
-             f.writeLine(word_m_t);
-    f.writeLine(divider_new);
-        for (var i = 0; i < mon_n_f.length; i++)
-{
-    s = '"' + mon_n_f[i] + '"';
-    for (var j = 0; j < dparts.length; j++)
-{
-       s += ',"' + tf(mon_a_f_dpart[i][j], 2) + '"';
-}
-     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new);
-f.writeLine(word_inc);
-    f.writeLine(divider_new);
-            for (var i = 0; i < inc_n_f.length; i++)
-{
-        s = '"' + inc_n_f[i] + '"';
-    for (var j = 0; j < dparts.length; j++)
-{
-           s += ',"' + tf(inc_a_f_dpart[i][j], 2) + '"';
-}
-                     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new);
-f.writeLine(word_exp);
-            f.writeLine(divider_new); 
-                for (var i = 0; i < exp_n_f.length; i++)
-{
-            s = '"' + exp_n_f[i] + '"';
-    for (var j = 0; j < dparts.length; j++)
-{
-               s += ',"' + tf(exp_a_f_dpart[i][j], 2) + '"';
-}
-                                     f.writeLine(s);
-    s = "";
-}
-            f.writeLine(divider_new); 
-    
-        f.close();
- //dpart bitdi.   
- 
-    
-    
-    
-        f = file("/sdcard/memento/all_parts.csv");   
-        title = '"Name"';
-        for(var i = 0; i < all_parts.length; i++)
+    //all basladi
+    for(var i = 0; i < all_parts.length; i++)
     {
      title += ',"' + all_parts[i] + '"';   
+        divider_new += ',"' + divid + '"';
+        word_m_t += ',""';
+        word_inc += ',""';
+         word_exp += ',""';
     }
     f.writeLine(title);
-     f.close();  
-    
-    
-    
-    
+             f.writeLine(word_m_t);
+    f.writeLine(divider_new);
+        for (var i = 0; i < mon_n_f.length; i++)
+{
+    s = '"' + mon_n_f[i] + '"';
+    for (var j = 0; j < all_parts.length; j++)
+{
+       s += ',"' + tf(mon_a_f_all[i][j], 2) + '"';
+}
+     f.writeLine(s);
+    s = "";
+}
+            f.writeLine(divider_new);
+f.writeLine(word_inc);
+    f.writeLine(divider_new);
+            for (var i = 0; i < inc_n_f.length; i++)
+{
+        s = '"' + inc_n_f[i] + '"';
+    for (var j = 0; j < all_parts.length; j++)
+{
+           s += ',"' + tf(inc_a_f_all[i][j], 2) + '"';
+}
+                     f.writeLine(s);
+    s = "";
+}
+            f.writeLine(divider_new);
+f.writeLine(word_exp);
+            f.writeLine(divider_new); 
+                for (var i = 0; i < exp_n_f.length; i++)
+{
+            s = '"' + exp_n_f[i] + '"';
+    for (var j = 0; j < all_parts.length; j++)
+{
+               s += ',"' + tf(exp_a_f_all[i][j], 2) + '"';
+}
+                                     f.writeLine(s);
+    s = "";
+}
+            f.writeLine(divider_new); 
+        f.close();
+ //al bitdi.     
     
 //reporting end
 
