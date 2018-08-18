@@ -92,6 +92,7 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
                     }
                 }
                 else
+                    if(t % 3 == 0)//quorter 
                 {all_parts.push("q_" + (t / 3) + "_" + i);} 
             }
     }
