@@ -97,6 +97,7 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
         }
         all_parts.push(i);//year
     }
+    all_parts.push("All");//all
 //-------------------------- 
     var inc_a_f_all = [], exp_a_f_all = [], mon_a_f_all =  [];   
     two_dim_array_inisial_zero(inc_a_f_all, inc_n_f.length, all_parts.length);  
@@ -224,6 +225,19 @@ mon_a_f_all[mon_n_f.indexOf(ent[e].field("Account") + "   ==>   " + ent[e].field
 }
 //---------------
 }
+//-------------------@@@
+    for(var i = 0; i < mon_n.length; i++)
+    {
+     mon_a_f_all[i][all_parts.length - 1] = mon_a[i];   
+    }
+        for(var i = 0; i < inc_n.length; i++)
+    {
+     inc_a_f_all[i][all_parts.length - 1] = inc_a[i];   
+    }
+        for(var i = 0; i < exp_n.length; i++)
+    {
+     exp_a_f_all[i][all_parts.length - 1] = exp_a[i];   
+    }
 //-------------------@@@
 array_sort_desc(inc_n, inc_a);
     //f.close();
