@@ -82,7 +82,17 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
                     all_parts.push(n + "_" + t + "_" + i);//dpart
                 }
                 all_parts.push("m_" + t + "_" + i);//month   
-
+                if(t == max_date.getMonth()+1)
+                {
+                    if(t % 3 == 0)
+                    {all_parts.push("q_" + (t / 3) + "_" + i);} 
+                    else
+                    {
+                        all_parts.push("q_" + pi(t / 3) + 1 + "_" + i);
+                    }
+                }
+                else
+                {all_parts.push("q_" + (t / 3) + "_" + i);} 
             }
     }
         else
