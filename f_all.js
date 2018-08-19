@@ -1,19 +1,5 @@
 function f_all()
 {
-    
-    f = file("/sdcard/memento/d3.txt");
-for (var i = 0; i <= 50; i++) 
-{
-for (var j = 0; j <= 50; j++) 
-{
-for (var k = 0; k <= 50; k++) 
-{
-f.writeLine("[" + i + ", " + j + ", " + k + "],");
-}
-}
-}
-f.close();
-    
 //reporting begin
 var ent = libByName("Reporting").entries(); 
 var acs = [], ams = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
