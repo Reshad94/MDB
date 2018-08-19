@@ -1,11 +1,11 @@
 function f_all()
 {
     f = file("/sdcard/memento/d3.csv");
-for (var i = 0; i <= 10; i++) 
+for (var i = 0; i <= 5; i++) 
 {
-for (var j = 0; j <= 10; j++) 
+for (var j = 0; j <= 5; j++) 
 {
-for (var k = 0; k <= 10; k++) 
+for (var k = 0; k <= 5; k++) 
 {
 f.writeLine("[" + i + ", " + j + ", " + k + "],");
 }
