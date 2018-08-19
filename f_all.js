@@ -1,7 +1,7 @@
 function f_all()
 {
     
-    f = file("/sdcard/memento/d3.csv");
+    f = file("/sdcard/memento/d3.txt");
 for (var i = 0; i <= 50; i++) 
 {
 for (var j = 0; j <= 50; j++) 
