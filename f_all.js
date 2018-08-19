@@ -37,6 +37,12 @@ for (var i = 0; i <= 20; i++)
     f.writeLine("[" + "20" + ", " + i + ", " + i + "],");
     f.writeLine("[" + "20" + ", " + (20 - i) + ", " + i + "],");
     
+    f.writeLine("[" + i + ", " + i + ", " + i + "],");
+    f.writeLine("[" + i + ", " + (20 - i) + ", " + i + "],");
+    
+    f.writeLine("[" + i + ", " + (20 - i) + ", " + (20 - i) + "],");
+    f.writeLine("[" + i + ", " + i + ", " + (20 - i) + "],");
+    
 }
 f.close();
 //reporting begin
