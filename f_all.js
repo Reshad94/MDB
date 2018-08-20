@@ -1,50 +1,5 @@
 function f_all()
 {
-    f = file("/sdcard/memento/d3.csv");
-for (var i = 0; i <= 20; i++) 
-{
-    f.writeLine("[" + i + ", " + "0" + ", " + "0" + "],");
-    f.writeLine("[" + i + ", " + "0" + ", " + "20" + "],");
-    f.writeLine("[" + "0" + ", " + "0" + ", " + i + "],");
-    f.writeLine("[" + "20" + ", " + "0" + ", " + i + "],");
-    
-    f.writeLine("[" + i + ", " + "20" + ", " + "0" + "],");
-    f.writeLine("[" + i + ", " + "20" + ", " + "20" + "],");
-    f.writeLine("[" + "0" + ", " + "20" + ", " + i + "],");
-    f.writeLine("[" + "20" + ", " + "20" + ", " + i + "],");
-    
-    f.writeLine("[" + "0" + ", " + i + ", " + "0" + "],");
-    f.writeLine("[" + "0" + ", " + i + ", " + "20" + "],");
-    
-    f.writeLine("[" + "20" + ", " + i + ", " + "0" + "],");
-    f.writeLine("[" + "20" + ", " + i + ", " + "20" + "],");
-    
-    f.writeLine("[" + i + ", " + "0" + ", " + i + "],");
-    f.writeLine("[" + i + ", " + "20" + ", " + i + "],");
-    
-    f.writeLine("[" + i + ", " + "0" + ", " + (20 - i) + "],");
-    f.writeLine("[" + i + ", " + "20" + ", " + (20 - i) + "],");
-    
-    f.writeLine("[" + i + ", " + (20 - i) + ", " + "0" + "],");
-    f.writeLine("[" + i + ", " + i + ", " + "0" + "],");
-    
-    f.writeLine("[" + i + ", " + (20 - i) + ", " + "20" + "],");
-    f.writeLine("[" + i + ", " + i + ", " + "20" + "],");
-    
-    f.writeLine("[" + "0" + ", " + i + ", " + i + "],");
-    f.writeLine("[" + "0" + ", " + (20 - i) + ", " + i + "],");
-    
-    f.writeLine("[" + "20" + ", " + i + ", " + i + "],");
-    f.writeLine("[" + "20" + ", " + (20 - i) + ", " + i + "],");
-    
-    f.writeLine("[" + i + ", " + i + ", " + i + "],");
-    f.writeLine("[" + i + ", " + (20 - i) + ", " + i + "],");
-    
-    f.writeLine("[" + i + ", " + (20 - i) + ", " + (20 - i) + "],");
-    f.writeLine("[" + i + ", " + i + ", " + (20 - i) + "],");
-    
-}
-f.close();
 //reporting begin
 var ent = libByName("Reporting").entries(); 
 var acs = [], ams = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
