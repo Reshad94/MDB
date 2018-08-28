@@ -42,8 +42,8 @@ cdates.push(dates[iii]);
 }
 else
 {
-cdates.push(date_t(begin_now));
- //moment(begin_now).toDate()
+cdates.push(moment(begin_now).toDate());
+ 
 }
 }
 else
