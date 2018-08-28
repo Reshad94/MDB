@@ -42,7 +42,7 @@ cdates.push(dates[iii]);
 }
 else
 {
-cdates.push(date_t(begin_now));
+cdates.push(begin_now);
 }
 }
 else
