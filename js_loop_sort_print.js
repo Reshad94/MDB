@@ -127,7 +127,7 @@ function sum_with_date_txt(arr_a, arr_d, datee) {
 var sum = 0.00;
 	f = file("/sdcard/memento/compare/test-" + moment(datee).format("DD-MM-YYYY") + " .txt");
 for (var i = 0; i < arr_a.length; i++) {
-	if (arr_d[i]) == datee)
+//	if (moment(arr_d[i]).toDate() == moment(datee).toDate())
 	    {
   sum += arr_a[i];
 		   f.writeLine("i = " + i + "   arr_a = " + arr_a[i].toFixed(2) + "   sum = " + sum.toFixed(2)); 
