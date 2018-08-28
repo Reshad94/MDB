@@ -130,7 +130,8 @@ for (var i = 0; i < arr_a.length; i++) {
 //	if (moment(arr_d[i]).toDate() == moment(datee).toDate())
 	    {
   sum += arr_a[i];
-		   f.writeLine("i = " + i + "   arr_a = " + arr_a[i].toFixed(2) + "   sum = " + sum.toFixed(2)+ "   arr_d = " + arr_d[i]); 
+		   f.writeLine("i = " + i + "   arr_a = " + arr_a[i].toFixed(2) + "   sum = " + sum.toFixed(2) + 
+			       "   arr_d = " + arr_d[i] + "datee = " + datee); 
 	    }
 }
 			   f.close();
