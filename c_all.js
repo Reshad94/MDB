@@ -41,8 +41,8 @@ f = file("/sdcard/memento/compare.txt");
                "  (" + (aaa[i] - aaa[i + 1]).toFixed(2) + ")" );
          f.writeLine("AmountDif     " + amamam[i + 1].toFixed(2) + "  =>  " + amamam[i].toFixed(2) +
                "  (" + (amamam[i] - amamam[i + 1]).toFixed(2) + ")" );
-                 f.writeLine("Detail     " + iaiaia[i].toFixed(2) + " (" + ididid[i] + ")  =>  (" +
-                             iaiaia[i + 1].toFixed(2) + " (" + ididid[i + 1] + ")");
+                 f.writeLine("Detail     " + iaiaia[i + 1].toFixed(2) + " (" + ididid[i + 1] + ")  =>  (" +
+                             iaiaia[i].toFixed(2) + " (" + ididid[i] + ")");
            f.writeLine("Result     " + (sm_sum - aaa[i + 1]).toFixed(2) + "  =>  " + (sm_sum - aaa[i]).toFixed(2) +
                "  (" + (-1 * aaa[i] + aaa[i + 1]).toFixed(2) + ")" );
   }
