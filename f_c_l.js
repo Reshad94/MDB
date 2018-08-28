@@ -42,7 +42,7 @@ cdates.push(dates[iii]);
 }
 else
 {
-cdates.push(moment(begin_now).toDate());
+cdates.push(date_t(begin_now));
 }
 }
 else
