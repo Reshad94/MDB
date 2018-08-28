@@ -107,7 +107,7 @@ amountdifs[jjj] = anpmts[jjj] - ccredits[jjj];
    
    
     var sumccredits = sum(ccredits), sumanpmts = sum(anpmts), sumamountdifs = sum(amountdifs), sumiamount = sum_with_date(ccredits, cdates, begin_now);
-    
-    return sumccredits.toFixed(2) + "@" + sumanpmts.toFixed(2) + "@" + sumamountdifs.toFixed(2) + "@" + sumiamount.toFixed(2);
+    var datevalue = datedifs[cdates.indexOf(begin_now)];
+    return sumccredits.toFixed(2) + "@" + sumanpmts.toFixed(2) + "@" + sumamountdifs.toFixed(2) + "@" + sumiamount.toFixed(2) + "@" + datevalue;
   }
 //credit end
