@@ -114,6 +114,17 @@ return sum
 //---------------------------------------------
 function sum_with_date(arr_a, arr_d, datee) {
 var sum = 0.00;
+for (var i = 0; i < arr_a.length; i++) {
+	if (moment(arr_d[i]).toDate() == moment(datee).toDate())
+	    {
+  sum += arr_a[i];
+	    }
+}
+return sum;
+}
+//---------------------------------------------
+function sum_with_date_txt(arr_a, arr_d, datee) {
+var sum = 0.00;
 	f = file("/sdcard/memento/compare/test-" + moment(datee).format("DD-MM-YYYY") + " .txt");
 for (var i = 0; i < arr_a.length; i++) {
 	if (moment(arr_d[i]).toDate() == moment(datee).toDate())
@@ -123,7 +134,6 @@ for (var i = 0; i < arr_a.length; i++) {
 	    }
 }
 			   f.close();
-return sum;
 }
 //---------------------------------------------
 function f_print_each(a1, a2, a3, a4, a5, a6, a7, a8, a9, str, dt)
