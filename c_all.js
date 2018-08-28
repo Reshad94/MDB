@@ -4,7 +4,7 @@ var begin_date =  moment(date_now()).add(-45, "days");
     //new Date(2018, 07, 01);
  var now = date_now();
 var n = date_dif(begin_date, now);
- var ccc = [], aaa = [], amamam = [], iaiaia = [];
+ var ccc = [], aaa = [], amamam = [], iaiaia = [], ididid = [];
  var temp;
 //  message (n);
 var divider = "-------------------------------------------------------";
@@ -26,6 +26,7 @@ ccc.push(parseFloat(parts[0]));
    aaa.push(parseFloat(parts[1]));
    amamam.push(parseFloat(parts[2]));
       iaiaia.push(parseFloat(parts[3]));
+       ididid.push(parseFloat(parts[4]));
   }
   //main loop end
   
@@ -40,8 +41,8 @@ f = file("/sdcard/memento/compare.txt");
                "  (" + (aaa[i] - aaa[i + 1]).toFixed(2) + ")" );
          f.writeLine("AmountDif     " + amamam[i + 1].toFixed(2) + "  =>  " + amamam[i].toFixed(2) +
                "  (" + (amamam[i] - amamam[i + 1]).toFixed(2) + ")" );
-                 f.writeLine("Detail     " + (sm_sum - aaa[i + 1]).toFixed(2) + "  =>  " + (sm_sum - aaa[i]).toFixed(2) +
-               "  (" + (-1 * aaa[i] + aaa[i + 1]).toFixed(2) + ")" );
+                 f.writeLine("Detail     " + iaiaia[i].toFixed(2) + " (" + ididid[i] + ")  =>  (" +
+                             iaiaia[i + 1].toFixed(2) + " (" + ididid[i + 1] + ")");
            f.writeLine("Result     " + (sm_sum - aaa[i + 1]).toFixed(2) + "  =>  " + (sm_sum - aaa[i]).toFixed(2) +
                "  (" + (-1 * aaa[i] + aaa[i + 1]).toFixed(2) + ")" );
   }
