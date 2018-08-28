@@ -42,7 +42,8 @@ cdates.push(dates[iii]);
 }
 else
 {
-cdates.push(moment(begin_now).toDate());
+cdates.push(date_t(begin_now));
+ //moment(begin_now).toDate()
 }
 }
 else
@@ -107,7 +108,7 @@ amountdifs[jjj] = anpmts[jjj] - ccredits[jjj];
    
    sum_with_date_txt(ccredits, cdates, begin_now);
     var sumccredits = sum(ccredits), sumanpmts = sum(anpmts), sumamountdifs = sum(amountdifs), sumiamount = sum_with_date(ccredits, cdates, begin_now);
-    var datevalue = datedifs[cdates.indexOf(begin_now)];
+    var datevalue = datedifs[cdates.indexOf(date_t(begin_now))];
     return sumccredits.toFixed(2) + "@" + sumanpmts.toFixed(2) + "@" + sumamountdifs.toFixed(2) + "@" + sumiamount.toFixed(2) + "@" + datevalue;
   }
 //credit end
