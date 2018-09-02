@@ -254,7 +254,7 @@ f.writeLine('"Assets","' + tf(a_sum, 2) + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < acs.length; j++) 
 {
-if (pf(ams[j]) > 0)
+if (pf(ams[j]) > 0.005)
 {
 f.writeLine('"' + acs[j] + '","' + tf(ams[j], 2) + '"');
 }
@@ -264,7 +264,7 @@ f.writeLine('"' + divider + '","' + divs + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < inc_n.length; j++) 
 {
-if (pf(inc_a[j]) > 0)
+if (pf(inc_a[j]) > 0.005)
 {
     f.writeLine('"' + inc_n[j] + '","' + tf(inc_a[j], 2) + '"');
 }
@@ -274,7 +274,7 @@ f.writeLine('"' + divider + '","' + divs + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < exp_n.length; j++) 
 {
-if (pf(exp_a[j]) > 0)
+if (pf(exp_a[j]) > 0.005)
 {
     f.writeLine('"' + exp_n[j] + '","' + tf(exp_a[j], 2) + '"');
 }
@@ -284,7 +284,7 @@ f.writeLine('"' + divider + '","' + divs + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < mon_n.length; j++) 
 {
-if (pf(mon_a[j]) > 0)
+if (pf(mon_a[j]) > 0.005)
 {
         f.writeLine('"' + mon_n[j] + '","' + tf(mon_a[j], 2) + '"');
 }
@@ -294,7 +294,7 @@ f.writeLine('"' + divider + '","' + divs + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < op_n.length; j++)
 {
-if (pf(op_a[j]) > 0)
+if (pf(op_a[j]) > 0.005)
 {
         f.writeLine('"' + op_n[j] + '","' + tf(op_a[j], 2) + '"');
 }
