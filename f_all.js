@@ -2,11 +2,12 @@ function f_all()
 {
 //reporting begin
 var ent = libByName("Reporting").entries(); 
-var acs = [], ams = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
+var ac_n = [], ac_a = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
+    ag_n = [], ag_a = [],
     inc_n_f = [], exp_n_f = [], mon_n_f = [];
 var min_date = new Date(2017, 04, 01), max_date = date_now();
 var all_parts = [];
-var a_sum = 0, i_sum = 0, e_sum = 0, m_sum = 0, o_sum = 0;
+var a_sum = 0, i_sum = 0, e_sum = 0, m_sum = 0, o_sum = 0, ag_sum = 0;
 //------------------------@@@
 for (var e = 0; e < ent.length; e++) 
 {
@@ -16,7 +17,7 @@ if ( moment(date_t(ent[e].field("Date"))).toDate() < moment(min_date).toDate() )
 //----------@
 if (ent[e].field("transactionType") == 3)
 {
-acs.push(ent[e].field("Account"));
+ac_n.push(ent[e].field("Account"));
 o_sum += pf(ent[e].field("Sum"));
 op_n.push(ent[e].field("Account"));
 op_a.push(ent[e].field("Sum"));
@@ -25,6 +26,11 @@ op_a.push(ent[e].field("Sum"));
 if (ent[e].field("Category_Income") != "" && inc_n.indexOf(ent[e].field("Category_Income")) == -1)
 {
 inc_n.push(ent[e].field("Category_Income"));
+}
+//----------@
+if (ent[e].field("Agent") != "" && ag_n.indexOf(ent[e].field("Agent")) == -1)
+{
+ag_n.push(ent[e].field("Agent"));
 }
 //----------@
 if (ent[e].field("Category_Expense") != "" && exp_n.indexOf(ent[e].field("Category_Expense")) == -1)
@@ -104,10 +110,11 @@ mon_n.push(ent[e].field("Account") + "   ==>   " + ent[e].field("_Account"));
     two_dim_array_inisial_zero(exp_a_f_all, exp_n_f.length, all_parts.length); 
     two_dim_array_inisial_zero(mon_a_f_all, mon_n_f.length, all_parts.length);
 //-----------------------@@@
-array_inisial_zero(ams, acs.length);
+array_inisial_zero(ac_a, ac_n.length);
 array_inisial_zero(inc_a, inc_n.length);
 array_inisial_zero(exp_a, exp_n.length);
 array_inisial_zero(mon_a, mon_n.length);
+array_inisial_zero(ag_a, ag_n.length);
 //----------------------@@@
 for (var e = 0; e < ent.length; e++) 
 {
@@ -122,13 +129,19 @@ if (pf(ent[e].field("Signed_Sum")) < 0)
 else
 {i_sum +=  pf(ent[e].field("Signed_Sum"));}
 //----------------
+if (ent[e].field("Agent") != "")
+{
+ag_a[ag_n.indexOf(ent[e].field("Agent"))] += pf(ent[e].field("Sum"));
+ag_sum += pf(ent[e].field("Sum"));
+}
+//----------------
 if (ent[e].field("transactionType") <= 1)
 {
-ams[acs.indexOf(ent[e].field("Account"))] -= pf(ent[e].field("Sum"));
+ac_a[ac_n.indexOf(ent[e].field("Account"))] -= pf(ent[e].field("Sum"));
 }
 else
 {
-ams[acs.indexOf(ent[e].field("Account"))] += pf(ent[e].field("Sum"));
+ac_a[ac_n.indexOf(ent[e].field("Account"))] += pf(ent[e].field("Sum"));
 }
 //--------------
 if (ent[e].field("_Account") != "")
@@ -136,11 +149,11 @@ if (ent[e].field("_Account") != "")
 //-------------
 if (ent[e].field("transactionType") <= 1)
 {
-ams[acs.indexOf(ent[e].field("_Account"))] += pf(ent[e].field("Sum"));
+ac_a[ac_n.indexOf(ent[e].field("_Account"))] += pf(ent[e].field("Sum"));
 }
 else
 {
-ams[acs.indexOf(ent[e].field("_Account"))] -= pf(ent[e].field("Sum"));
+ac_a[ac_n.indexOf(ent[e].field("_Account"))] -= pf(ent[e].field("Sum"));
 }
 //------------
 }
@@ -243,8 +256,9 @@ array_sort_desc(inc_n, inc_a);
     //f.close();
 array_sort_desc(exp_n, exp_a);
 array_sort_desc(mon_n, mon_a);
-array_sort_desc(acs, ams);
+array_sort_desc(ac_n, ac_a);
 array_sort_desc(op_n, op_a);
+array_sort_desc(ag_n, ag_a);
 //-------------------@@@
 var divider = "-------------------------------------------------------";
     var divs = "----------------";
@@ -252,11 +266,11 @@ f = file("/sdcard/memento/report.csv");
     f.writeLine('"Name","Sum"');
 f.writeLine('"Assets","' + tf(a_sum, 2) + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
-for (var j = 0; j < acs.length; j++) 
+for (var j = 0; j < ac_n.length; j++) 
 {
-if (pf(ams[j]) > 0.005)
+if (pf(ac_a[j]) > 0.005)
 {
-f.writeLine('"' + acs[j] + '","' + tf(ams[j], 2) + '"');
+f.writeLine('"' + ac_n[j] + '","' + tf(ac_a[j], 2) + '"');
 }
 }
 f.writeLine('"' + divider + '","' + divs + '"');
@@ -297,6 +311,16 @@ for (var j = 0; j < op_n.length; j++)
 if (pf(op_a[j]) > 0.005)
 {
         f.writeLine('"' + op_n[j] + '","' + tf(op_a[j], 2) + '"');
+}
+}
+f.writeLine('"' + divider + '","' + divs + '"');
+                    f.writeLine('"Agent","' + tf(ag_sum, 2) + '"');
+f.writeLine('"' + divider + '","' + divs + '"');
+for (var j = 0; j < ag_n.length; j++)
+{
+if (pf(ag_a[j]) > 0.005)
+{
+        f.writeLine('"' + ag_n[j] + '","' + tf(ag_a[j], 2) + '"');
 }
 }
 f.writeLine('"' + divider + '","' + divs + '"');
@@ -378,7 +402,8 @@ f.writeLine("Insurance Amount:     " + tf(sm_sum, 2));
   f.writeLine(divider);
   for (var e = ent.length - 1; e > -1 ; e--) 
 {
-f.writeLine(ent[e].field("Id") + "    -    " + moment(ent[e].field("Date")).format("DD-MM-YYYY") + "    -    "  + pf(ent[e].field("Sum")).toFixed(2));
+f.writeLine(ent[e].field("Id") + "    -    " + moment(ent[e].field("Date")).format("DD-MM-YYYY") + "    -    "  + 
+            pf(ent[e].field("Sum")).toFixed(2));
 }
 f.close();
 //insurance end
@@ -389,7 +414,8 @@ var enddates = new Date(2020, 10, 30);
 var x = new Date(2018, 03, 23);
 var y = new Date(2018, 05, 14);
 var f125 = 12.5/36000, f13 = 13/36000, new_datedifs = parseInt(0);
-var ids = [], dates = [], cids = [], credits = [], ccredits = [], c_ccredits = [], cdates = [], datedifs = [], anpmts = [], amountdifs = [];
+var ids = [], dates = [], cids = [], credits = [], ccredits = [], c_ccredits = [], cdates = [], datedifs = [], anpmts = [], 
+    amountdifs = [];
 array_inisial_zero(c_ccredits, 34);
 
 for (var e = 0; e < ent.length; e++) 
