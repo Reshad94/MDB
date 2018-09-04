@@ -1,6 +1,6 @@
 function c_all()
 {
-var begin_date =  moment(date_now()).add(-5, "days");
+var begin_date =  moment(date_now()).add(-3, "days");
     //new Date(2018, 07, 01);
  var now = date_now();
 var n = date_dif(begin_date, now);
