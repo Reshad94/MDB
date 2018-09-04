@@ -128,7 +128,7 @@ var sum = 0.00;
 	f = file("/sdcard/memento/compare/test-" + moment(datee).format("DD-MM-YYYY") + " .txt");
 for (var i = 0; i < arr_a.length; i++) {
 	if (
-		moment(arr_d[i]).toDate() == (new Date(datee))
+		moment(arr_d[i]).toDate() == moment(new Date(datee)).toDate()
 	   )
 	    {
   sum += arr_a[i];
