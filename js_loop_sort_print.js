@@ -127,13 +127,15 @@ function sum_with_date_txt(arr_a, arr_d, datee) {
 var sum = 0.00;
 	f = file("/sdcard/memento/compare/test-" + moment(datee).format("DD-MM-YYYY") + " .txt");
 for (var i = 0; i < arr_a.length; i++) {
-	if (
-		moment(arr_d[i]).toDate() == moment(new Date(datee)).toDate()
-	   )
+//	if (
+//		moment(arr_d[i]).toDate() == moment(new Date(datee)).toDate()
+//	   )
 	    {
   sum += arr_a[i];
-		   f.writeLine("i = " + i + "   arr_a = " + arr_a[i].toFixed(2) + "   sum = " + sum.toFixed(2) + 
-			       "   arr_d = " + arr_d[i] + "    datee = " + (new Date(datee))); 
+		   f.writeLine(
+			   "i = " + i + "   arr_a = " + arr_a[i].toFixed(2) + "   sum = " + sum.toFixed(2) + 
+			       "   arr_d = " + moment(arr_d[i]).toDate() + "    datee = " + moment(new Date(datee)).toDate()
+			      ); 
 	    }
 }
 			   f.close();
