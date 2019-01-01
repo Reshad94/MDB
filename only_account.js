@@ -1,4 +1,4 @@
-function f_all()
+function only_account()
 {
 //reporting begin
 var ent = libByName("Reporting").entries(); 
