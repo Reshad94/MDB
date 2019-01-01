@@ -387,3 +387,6 @@ f.writeLine(word_exp);
  //al bitdi.     
     
 //reporting end
+    
+    
+    }
