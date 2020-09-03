@@ -123,40 +123,11 @@ for (var i = 0; i < arr_a.length; i++) {
 return sum;
 }
 //---------------------------------------------
-function sum_with_date_txt(arr_a, arr_d, datee) {
-var sum = 0.00;
-	f = file("/sdcard/memento/compare/test-" + moment(datee).format("DD-MM-YYYY") + " .txt");
-for (var i = 0; i < arr_a.length; i++) {
-//	if (
-//		moment(arr_d[i]).toDate() == moment(new Date(datee)).toDate()
-//	   )
-	    {
-  sum += arr_a[i];
-		   f.writeLine(
-			   "i = " + i + "   arr_a = " + arr_a[i].toFixed(2) + "   sum = " + sum.toFixed(2) + 
-			       "   arr_d = " + moment(arr_d[i]).toDate() + "    datee = " + moment(new Date(datee)).toDate()
-			      ); 
-	    }
-}
-			   f.close();
-}
+			   
+
 //---------------------------------------------
-function f_print_each(a1, a2, a3, a4, a5, a6, a7, a8, a9, str, dt)
-{
-  var divider = "-------------------------------------------------------";
-  f = file("/sdcard/memento/compare/compare-" + dt + " .txt");
-  f.writeLine(str);
-  f.writeLine(divider);
-  for (var e = 0; e < a1.length; e++) 
-{
-f.writeLine(a1[e] + "@" + moment(a2[e]).format("DD-MM-YYYY") + "@" + a3[e].toFixed(2) + 
-              "@" + moment(a4[e]).format("DD-MM-YYYY") +
-"@" + a5[e].toFixed(2) +
-"@" + a6[e] + "@" + a7[e] 
-+  "@" + a8[e].toFixed(2) + "@" + a9[e].toFixed(2));
-}
-f.close();
-}
+
+
 //--------------------------------------
 function quorter(d) {
   if ( moment(d).toDate() < ( new Date(d.getFullYear(), 03, 01) ) )
