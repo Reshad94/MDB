@@ -4,7 +4,7 @@ for (var i = 0; i < amount.length - 1; i++)
 {
        for(var j = 0; j < amount.length - i - 1; j++)
        {
-                if(parseFloat(amount[j]) < parseFloat(amount[j + 1]))
+                if(pf(amount[j]) < pf(amount[j + 1]))
                 {
                             tempVar = amount[j];
                             amount[j]= amount[j + 1];
@@ -99,7 +99,7 @@ for (var e = 0; e < arr1.length; e++)
 {
   if (arr1[e] > 34)
   {
-  arr4[arr2[e] - 1] += parseFloat(arr3[e]);
+  arr4[arr2[e] - 1] += pf(arr3[e]);
   }
 }
 }
