@@ -5,7 +5,7 @@ var ent = libByName("Reporting").entries();
 var ac_n = [], ac_a = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
     ag_n = [], ag_a = [],
     inc_n_f = [], exp_n_f = [], mon_n_f = [];
-var min_date = new Date(2021, 01, 01), max_date = date_now();
+var min_date = new Date(2022, 01, 01), max_date = date_now();
 var all_parts = [];
 var a_sum = 0, i_sum = 0, e_sum = 0, m_sum = 0, o_sum = 0, ag_sum = 0;
 //------------------------@@@
@@ -268,7 +268,7 @@ f.writeLine('"Assets","' + tf(a_sum, 2) + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < ac_n.length; j++) 
 {
-if (pf(ac_a[j]) > 0.005)
+//if (pf(ac_a[j]) > 0.005)
 {
 f.writeLine('"' + ac_n[j] + '","' + tf(ac_a[j], 2) + '"');
 }
@@ -278,7 +278,7 @@ f.writeLine('"' + divider + '","' + divs + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < inc_n.length; j++) 
 {
-if (pf(inc_a[j]) > 0.005)
+//if (pf(inc_a[j]) > 0.005)
 {
     f.writeLine('"' + inc_n[j] + '","' + tf(inc_a[j], 2) + '"');
 }
@@ -288,7 +288,7 @@ f.writeLine('"' + divider + '","' + divs + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < exp_n.length; j++) 
 {
-if (pf(exp_a[j]) > 0.005)
+//if (pf(exp_a[j]) > 0.005)
 {
     f.writeLine('"' + exp_n[j] + '","' + tf(exp_a[j], 2) + '"');
 }
@@ -298,7 +298,7 @@ f.writeLine('"' + divider + '","' + divs + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < mon_n.length; j++) 
 {
-if (pf(mon_a[j]) > 0.005)
+//if (pf(mon_a[j]) > 0.005)
 {
         f.writeLine('"' + mon_n[j] + '","' + tf(mon_a[j], 2) + '"');
 }
@@ -308,7 +308,7 @@ f.writeLine('"' + divider + '","' + divs + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < op_n.length; j++)
 {
-if (pf(op_a[j]) > 0.005)
+//if (pf(op_a[j]) > 0.005)
 {
         f.writeLine('"' + op_n[j] + '","' + tf(op_a[j], 2) + '"');
 }
@@ -318,7 +318,7 @@ f.writeLine('"' + divider + '","' + divs + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
 for (var j = 0; j < ag_n.length; j++)
 {
-if (pf(ag_a[j]) > 0.005)
+//if (pf(ag_a[j]) > 0.005)
 {
         f.writeLine('"' + ag_n[j] + '","' + tf(ag_a[j], 2) + '"');
 }
