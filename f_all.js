@@ -5,7 +5,7 @@ var ent = libByName("Reporting").entries();
 var ac_n = [], ac_a = [], inc_n = [], inc_a = [], exp_n = [], exp_a = [], mon_n = [], mon_a = [], op_n = [], op_a = [],
     ag_n = [], ag_a = [],
     inc_n_f = [], exp_n_f = [], mon_n_f = [];
-var min_date = new Date(2022, 01, 01), max_date = date_now();
+var min_date = new Date(2021, 12, 01), max_date = date_now();
 var all_parts = [];
 var a_sum = 0, i_sum = 0, e_sum = 0, m_sum = 0, o_sum = 0, ag_sum = 0;
 //------------------------@@@
