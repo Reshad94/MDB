@@ -262,7 +262,7 @@ array_sort_desc(ag_n, ag_a);
 //-------------------@@@
 var divider = "-------------------------------------------------------";
     var divs = "----------------";
-f = file("/sdcard/memento/report.csv");
+f = file("/storage/emulated/0/memento/report.csv");
     f.writeLine('"Name","Sum"');
 f.writeLine('"Assets","' + tf(a_sum, 2) + '"');
 f.writeLine('"' + divider + '","' + divs + '"');
@@ -326,7 +326,7 @@ for (var j = 0; j < ag_n.length; j++)
 f.writeLine('"' + divider + '","' + divs + '"');
 f.close();
 //-------------------@@@
-f = file("/sdcard/memento/frequently.csv");
+f = file("/storage/emulated/0/memento/frequently.csv");
     var s = "";
     var divid = "----------";
     var title = '"Name"';
